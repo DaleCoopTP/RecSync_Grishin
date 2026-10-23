@@ -1,0 +1,59 @@
+{
+  "source_commit": "f69775be31fa5779907cf0a92ddedb70037fb5ae",
+  "archive_sha256": "50fc5b7db78cbda4c3d0ee5bb5bea4c416cff41e8af58aab0b661d0d3e9dfa9b",
+  "seed": 42,
+  "sample_users": 100000,
+  "sample_rows": 572621,
+  "user_ids_sha256": "2b61e70c4ea86c7caca5d171a9ad3fd8a41a650c591567eaeee018dafb520c74",
+  "events_sha256": "3167bd03dea7f7fa2d3613dc06acd0bd4ab8c57a8ad372abd6e8382b16617a2c",
+  "numpy_version": "2.5.4",
+  "snapshots": [
+    {
+      "cutoff": "2021-07-19",
+      "history_rows": 374722,
+      "history_users": 72246,
+      "history_items": 9241,
+      "target_rows": 34492,
+      "warm_active_users": 9143,
+      "cold_active_users": 4797,
+      "warm_user_new_item_targets": 485
+    },
+    {
+      "cutoff": "2021-07-26",
+      "history_rows": 409214,
+      "history_users": 77043,
+      "history_items": 9395,
+      "target_rows": 38540,
+      "warm_active_users": 9913,
+      "cold_active_users": 5798,
+      "warm_user_new_item_targets": 387
+    },
+    {
+      "cutoff": "2021-08-02",
+      "history_rows": 447754,
+      "history_users": 82841,
+      "history_items": 9544,
+      "target_rows": 39764,
+      "warm_active_users": 10309,
+      "cold_active_users": 5555,
+      "warm_user_new_item_targets": 934
+    },
+    {
+      "cutoff": "2021-08-09",
+      "history_rows": 487518,
+      "history_users": 88396,
+      "history_items": 9761,
+      "target_rows": 41324,
+      "warm_active_users": 10852,
+      "cold_active_users": 5734,
+      "warm_user_new_item_targets": 1489
+    }
+  ],
+  "test_cutoff": "2021-08-16",
+  "test_evaluated": false,
+  "sampling_note": "Uniform cohort over all released user IDs; eligibility is determined separately at each cutoff.",
+  "assumptions": [
+    "last_watch_dt is a last recorded interaction, not a complete event stream",
+    "Metadata is treated as static and available at cutoff; no historical versions exist"
+  ]
+}

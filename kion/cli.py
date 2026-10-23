@@ -5,7 +5,7 @@ from .config import Config
 def main():
     parser = argparse.ArgumentParser(description="Reproducible KION recommendation baseline")
     parser.add_argument("--config", default="config.toml")
-    parser.add_argument("command", choices=["config", "download"], help="Pipeline stage")
+    parser.add_argument("command", choices=["config", "download", "prepare"], help="Pipeline stage")
     parser.add_argument("--archive", help="Existing pinned data_original.zip")
     args = parser.parse_args()
     cfg = Config.load(args.config)
@@ -16,3 +16,7 @@ def main():
         from .data import audit_archive
         import json
         print(json.dumps(audit_archive(cfg, args.archive)[3], ensure_ascii=False, indent=2))
+    elif args.command == "prepare":
+        from .protocol import prepare
+        import json
+        print(json.dumps(prepare(cfg, args.archive), ensure_ascii=False, indent=2))
