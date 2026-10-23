@@ -7,6 +7,8 @@
   "user_ids_sha256": "2b61e70c4ea86c7caca5d171a9ad3fd8a41a650c591567eaeee018dafb520c74",
   "events_sha256": "3167bd03dea7f7fa2d3613dc06acd0bd4ab8c57a8ad372abd6e8382b16617a2c",
   "numpy_version": "2.5.4",
+  "users_sha256": "35352b89dd573cd720829783b07ea635ed66afce9e8fbd6a1be96971d497ffbf",
+  "items_sha256": "b25685e1539608c768b0c6f62680885f55ba1ba607f8afa86217dfa5f0c11d95",
   "snapshots": [
     {
       "cutoff": "2021-07-19",

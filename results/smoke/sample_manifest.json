@@ -1,0 +1,61 @@
+{
+  "source_commit": "f69775be31fa5779907cf0a92ddedb70037fb5ae",
+  "archive_sha256": "50fc5b7db78cbda4c3d0ee5bb5bea4c416cff41e8af58aab0b661d0d3e9dfa9b",
+  "seed": 42,
+  "sample_users": 1000,
+  "sample_rows": 5505,
+  "user_ids_sha256": "9d8ad85c3bfd39d9a141b14122a27ce191bff3cd47dc2ab4b2a8113bda6dbdcf",
+  "events_sha256": "572aa4127633ec9d46dd260117d5ef7da7ede79aa34d2120166344943b4d07c0",
+  "numpy_version": "2.5.4",
+  "users_sha256": "b3a98a08e7d638c53d03e9d94dadc15983d67f60338f13e57edaeed6dbdbd0fb",
+  "items_sha256": "b25685e1539608c768b0c6f62680885f55ba1ba607f8afa86217dfa5f0c11d95",
+  "snapshots": [
+    {
+      "cutoff": "2021-07-19",
+      "history_rows": 3552,
+      "history_users": 699,
+      "history_items": 1443,
+      "target_rows": 290,
+      "warm_active_users": 82,
+      "cold_active_users": 45,
+      "warm_user_new_item_targets": 63
+    },
+    {
+      "cutoff": "2021-07-26",
+      "history_rows": 3842,
+      "history_users": 744,
+      "history_items": 1526,
+      "target_rows": 371,
+      "warm_active_users": 91,
+      "cold_active_users": 74,
+      "warm_user_new_item_targets": 56
+    },
+    {
+      "cutoff": "2021-08-02",
+      "history_rows": 4213,
+      "history_users": 818,
+      "history_items": 1607,
+      "target_rows": 443,
+      "warm_active_users": 106,
+      "cold_active_users": 57,
+      "warm_user_new_item_targets": 82
+    },
+    {
+      "cutoff": "2021-08-09",
+      "history_rows": 4656,
+      "history_users": 875,
+      "history_items": 1693,
+      "target_rows": 435,
+      "warm_active_users": 121,
+      "cold_active_users": 62,
+      "warm_user_new_item_targets": 80
+    }
+  ],
+  "test_cutoff": "2021-08-16",
+  "test_evaluated": false,
+  "sampling_note": "Uniform cohort over all released user IDs; eligibility is determined separately at each cutoff.",
+  "assumptions": [
+    "last_watch_dt is a last recorded interaction, not a complete event stream",
+    "Metadata is treated as static and available at cutoff; no historical versions exist"
+  ]
+}

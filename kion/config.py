@@ -49,6 +49,11 @@ class Config:
                     self.candidate_limit, self.source_limit, self.batch_users, self.iterations)
         if min(positive) < 1 or self.preserve_per_source * 4 > self.candidate_limit:
             raise ValueError("Positive sizes and capacity for preserved candidates are required")
+        if (self.preserve_per_source < 0 or self.preserve_per_source > self.source_limit
+                or self.knn_neighbors < 1 or self.knn_history_limit < 1 or self.knn_shrinkage <= 0
+                or self.rrf_constant < 1 or self.early_stopping < 1 or self.learning_rate <= 0
+                or not {7, 30}.issubset(self.windows) or any(w <= 0 for w in self.windows)):
+            raise ValueError("Invalid retrieval, time-window or training parameters")
         dates = [date.fromisoformat(x) for x in self.train_cutoffs + [self.validation_cutoff, self.test_cutoff]]
         if any(a + timedelta(days=self.horizon_days) > b for a, b in zip(dates, dates[1:])):
             raise ValueError("Label windows must not overlap or reach beyond the next cutoff")

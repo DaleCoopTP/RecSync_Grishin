@@ -61,6 +61,7 @@ def prepare(cfg, local=None):
         "source_commit": SOURCE_COMMIT, "archive_sha256": ARCHIVE_SHA256, "seed": cfg.seed,
         "sample_users": cfg.sample_users, "sample_rows": len(events), "user_ids_sha256": sha256(out / "user_ids.npy"),
         "events_sha256": sha256(out / "events.parquet"), "numpy_version": np.__version__,
+        "users_sha256": sha256(out / "users.parquet"), "items_sha256": sha256(out / "items.parquet"),
         "snapshots": [make_snapshot(events, s, cfg.horizon_days).diagnostics for s in cfg.train_cutoffs + [cfg.validation_cutoff]],
         "test_cutoff": cfg.test_cutoff, "test_evaluated": False,
         "sampling_note": "Uniform cohort over all released user IDs; eligibility is determined separately at each cutoff.",
@@ -79,4 +80,7 @@ def load_prepared(cfg):
         raise ValueError("Prepared data provenance does not match configuration")
     if sha256(out / "events.parquet") != manifest["events_sha256"] or sha256(out / "user_ids.npy") != manifest["user_ids_sha256"]:
         raise ValueError("Prepared data checksum mismatch; run prepare again")
+    for name in ["users", "items"]:
+        if sha256(out / f"{name}.parquet") != manifest.get(f"{name}_sha256"):
+            raise ValueError("Prepared metadata checksum mismatch; run prepare again")
     return tuple(pd.read_parquet(out / f"{name}.parquet") for name in ("events", "users", "items"))
