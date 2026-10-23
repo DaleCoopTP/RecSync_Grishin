@@ -1,0 +1,10 @@
+.venv/
+.idea/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+data/
+artifacts/
+catboost_info/
+*.egg-info/
+.DS_Store
