@@ -93,6 +93,17 @@ class FeatureStore:
             frame[f"{prefix}_trend_7_30"] = (frame[f"{prefix}_count_7"] + 1) / (frame[f"{prefix}_count_30"] + 1)
         self.user_features["u_active_days"] = self.history.groupby("user_id").day.nunique().reindex(self.user_ids).to_numpy(dtype="float32")
         self.user_features["u_genre_diversity"] = (self.user_genre["all"] > 0).sum(axis=1).astype("float32")
+        genre_events = self.genre_matrix[self.ir].tocoo()
+        self.last_genre = np.zeros((self.shape[0], len(self.genres)), dtype="int32")
+        np.maximum.at(self.last_genre, (self.ur[genre_events.row], genre_events.col), self.days[genre_events.row])
+        self.relations = {}
+        for name in ["directors", "content_type"]:
+            codes, _ = pd.factorize(self.item_features[f"i_{name}"], sort=True)
+            relation = sparse.csr_matrix((np.ones(self.shape[1], dtype="float32"), (np.arange(self.shape[1]), codes)))
+            counts = {suffix: (ui @ relation).tocsr() for suffix, ui in self.window_ui.items()}
+            recent = pd.DataFrame({"u": self.ur, "c": codes[self.ir], "day": self.days}).groupby(["u", "c"], sort=False).day.max().reset_index()
+            last = sparse.csr_matrix((recent.day.to_numpy(dtype="float32"), (recent.u, recent.c)), shape=(self.shape[0], relation.shape[1]))
+            self.relations[name] = (codes, counts, last)
 
     def positions(self, pairs):
         u = self.user_index.get_indexer(pairs.user_id)
@@ -104,3 +115,26 @@ class FeatureStore:
     def base_features(self, pairs):
         u, i = self.positions(pairs)
         return pd.concat([pairs.reset_index(drop=True), self.user_features.iloc[u].reset_index(drop=True), self.item_features.iloc[i].reset_index(drop=True)], axis=1)
+
+    def transform(self, pairs):
+        frame = self.base_features(pairs)
+        u, i = self.positions(pairs)
+        genres = self.genre_dense[i]
+        extra = {}
+        for suffix, counts in self.user_genre.items():
+            count = np.einsum("ij,ij->i", counts[u], genres)
+            extra[f"pair_genre_count_{suffix}"] = count
+            extra[f"pair_genre_share_{suffix}"] = count / np.maximum(self.user_counts[suffix][u], 1)
+        last = np.max(self.last_genre[u] * (genres > 0), axis=1)
+        extra["pair_genre_recency"] = np.where(last > 0, self.day - last, 999)
+        extra["pair_genre_missing"] = last == 0
+        for name, (codes, matrices, last_matrix) in self.relations.items():
+            code = codes[i]
+            for suffix, mat in matrices.items():
+                count = np.asarray(mat[u, code]).ravel()
+                extra[f"pair_{name}_count_{suffix}"] = count
+                extra[f"pair_{name}_share_{suffix}"] = count / np.maximum(self.user_counts[suffix][u], 1)
+            last = np.asarray(last_matrix[u, code]).ravel()
+            extra[f"pair_{name}_recency"] = np.where(last > 0, self.day - last, 999)
+            extra[f"pair_{name}_missing"] = last == 0
+        return pd.concat([frame, pd.DataFrame({k: np.asarray(v, dtype="float32") for k, v in extra.items()})], axis=1)
