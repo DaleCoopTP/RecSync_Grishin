@@ -1,0 +1,35 @@
+{
+  "rows": 5476251,
+  "users": 962179,
+  "items": 15706,
+  "min_date": "2021-03-13",
+  "max_date": "2021-08-22",
+  "missing_event_values": {
+    "user_id": 0,
+    "item_id": 0,
+    "last_watch_dt": 0,
+    "total_dur": 0,
+    "watched_pct": 828
+  },
+  "users_without_metadata": 217891,
+  "items_without_metadata": 0,
+  "missing_user_values": {
+    "user_id": 0,
+    "age": 14095,
+    "income": 14776,
+    "sex": 13831,
+    "kids_flg": 0
+  },
+  "missing_item_values": {
+    "item_id": 0,
+    "content_type": 0,
+    "release_year": 98,
+    "genres": 0,
+    "countries": 37,
+    "for_kids": 15397,
+    "age_rating": 2,
+    "directors": 1509
+  },
+  "source_commit": "f69775be31fa5779907cf0a92ddedb70037fb5ae",
+  "archive_sha256": "50fc5b7db78cbda4c3d0ee5bb5bea4c416cff41e8af58aab0b661d0d3e9dfa9b"
+}
