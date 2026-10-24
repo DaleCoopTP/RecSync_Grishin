@@ -1,0 +1,103 @@
+{
+  "protocol_sha256": "bb6f50ee33878e48c4db803416536dd026a1d3cebd2af056302dac7273b69c07",
+  "artifact_directory": "artifacts/feature_ablation/fd59f741a8295274",
+  "benchmarks": {
+    "source_only": {
+      "protocol_sha256": "bb6f50ee33878e48c4db803416536dd026a1d3cebd2af056302dac7273b69c07",
+      "variant": "source_only",
+      "metrics": {
+        "ndcg@10": 0.14999997863167833,
+        "recall@10": 0.22070154142058526,
+        "map@10": 0.10404583900238366,
+        "candidate_recall@200": 0.539750844210885,
+        "users": 10852
+      },
+      "model_sha256": "291479cc102015016aff76d2891ed80d277165151f6d63cb56a034f625cb72ce",
+      "model_bytes": 1256896,
+      "features": 13,
+      "validation_rows": 2170393,
+      "validation_pool_seconds": 0.0009692079620435834,
+      "predict_seconds_repeats": [
+        0.4177854169975035,
+        0.44427533401176333,
+        0.46507312497124076
+      ],
+      "predict_seconds_median": 0.44427533401176333,
+      "inference_process_peak_rss_mb": 706.484375,
+      "files": {
+        "artifacts/feature_ablation/fd59f741a8295274/source_only.cbm": "291479cc102015016aff76d2891ed80d277165151f6d63cb56a034f625cb72ce",
+        "artifacts/feature_ablation/fd59f741a8295274/source_only_predictions.parquet": "f5233a6583b987c4032e4403799ae184441ddc3c38f3104f55d39aa6ac4f4cb0",
+        "artifacts/feature_ablation/fd59f741a8295274/source_only_per_user.parquet": "546df5c90c0e0754aa76ad9c1280c2797b54c44139c4ac656752277b159b9376"
+      },
+      "loaded_model_verified": true,
+      "test_evaluated": false
+    },
+    "manual_only": {
+      "protocol_sha256": "bb6f50ee33878e48c4db803416536dd026a1d3cebd2af056302dac7273b69c07",
+      "variant": "manual_only",
+      "metrics": {
+        "ndcg@10": 0.1410818845771024,
+        "recall@10": 0.20764823406129942,
+        "map@10": 0.09832668543298194,
+        "candidate_recall@200": 0.539750844210885,
+        "users": 10852
+      },
+      "model_sha256": "2c2e5017c666b620d026e7e1edfef4e14f6331545e1ef0de37b9f957fb050243",
+      "model_bytes": 1320072,
+      "features": 69,
+      "validation_rows": 2170393,
+      "validation_pool_seconds": 0.06992516701575369,
+      "predict_seconds_repeats": [
+        0.5193844999885187,
+        0.56348029198125,
+        0.5878460830426775
+      ],
+      "predict_seconds_median": 0.56348029198125,
+      "inference_process_peak_rss_mb": 2118.578125,
+      "files": {
+        "artifacts/feature_ablation/fd59f741a8295274/manual_only.cbm": "2c2e5017c666b620d026e7e1edfef4e14f6331545e1ef0de37b9f957fb050243",
+        "artifacts/feature_ablation/fd59f741a8295274/manual_only_predictions.parquet": "eb64c6f3a33c7a28945bf9ffb59d4b9b8393d4a3b8f6277d3cc8b888eb4cf1fd",
+        "artifacts/feature_ablation/fd59f741a8295274/manual_only_per_user.parquet": "84a961daf1b6c8ddc25fe29d58c77317ded5d05befba49760675959fb82c8a06"
+      },
+      "loaded_model_verified": true,
+      "test_evaluated": false
+    },
+    "full": {
+      "protocol_sha256": "bb6f50ee33878e48c4db803416536dd026a1d3cebd2af056302dac7273b69c07",
+      "variant": "full",
+      "metrics": {
+        "ndcg@10": 0.15379418025397162,
+        "recall@10": 0.22415111581559033,
+        "map@10": 0.10759310183200117,
+        "candidate_recall@200": 0.539750844210885,
+        "users": 10852
+      },
+      "model_sha256": "632ae25d419a001e60943d22b7a87aba084cd87322ba1e26c790b482cc937452",
+      "model_bytes": 1343376,
+      "features": 82,
+      "validation_rows": 2170393,
+      "validation_pool_seconds": 0.07002724998164922,
+      "predict_seconds_repeats": [
+        0.5545707910205238,
+        0.580243291973602,
+        0.5960206250310875
+      ],
+      "predict_seconds_median": 0.580243291973602,
+      "inference_process_peak_rss_mb": 2402.515625,
+      "files": {
+        "artifacts/8dc3e45a731e1287d838/models/selected_model.cbm": "632ae25d419a001e60943d22b7a87aba084cd87322ba1e26c790b482cc937452",
+        "artifacts/feature_ablation/fd59f741a8295274/full_predictions.parquet": "459df17ebcb3bc0c9e49275973f912f37187ec4f166926499145b0b738089736",
+        "artifacts/feature_ablation/fd59f741a8295274/full_per_user.parquet": "c194b6d0f0973136318ddb38ede41518414060fc491c9d1572b84f85c5298ef7"
+      },
+      "loaded_model_verified": true,
+      "test_evaluated": false
+    }
+  },
+  "protected_files_verified_unchanged": true,
+  "scope": "Post-hoc validation diagnostic after baseline completion; no test evaluation or tuning",
+  "test_evaluated": false,
+  "result_files": {
+    "feature_ablation_results.csv": "c89d1f5013d6ac0acf0978ba1feb536d8dabd5b580cf1894620ddfe563594669",
+    "feature_ablation_intervals.json": "a9275d84e9fa67f8546079aacde7015b3852231b83d030e1b464181f22c96009"
+  }
+}

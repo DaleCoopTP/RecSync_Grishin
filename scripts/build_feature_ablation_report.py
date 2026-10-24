@@ -54,12 +54,21 @@ def section(cfg):
     delta = intervals['paired']['full_minus_source_only']['ndcg@10']
     relative = 100 * (indexed.loc['full', 'ndcg@10'] / indexed.loc['source_only', 'ndcg@10'] - 1)
     manual_delta = intervals['paired']['full_minus_manual_only']['ndcg@10']
+    groups_delta = intervals['paired']['manual_only_minus_source_only']['ndcg@10']
     if delta['lower'] > 0:
         conclusion = 'На этой валидации дополнительные ручные признаки улучшают модель поверх сигналов источников.'
     elif delta['upper'] < 0:
         conclusion = 'На этой валидации добавление ручных признаков ухудшает результат при фиксированной конфигурации.'
     else:
         conclusion = 'Устойчивый дополнительный выигрыш ручных признаков поверх сигналов источников этой диагностикой не подтверждён.'
+    if groups_delta['upper'] < 0:
+        family_conclusion = ('Компактная комбинация сигналов источников превосходит вариант только с ручными '
+                             'признаками на этой валидации. Большего числа столбцов недостаточно для лучшего качества; '
+                             'ручные агрегаты полезны прежде всего как дополнение к сигналам в полной модели.')
+    elif groups_delta['lower'] > 0:
+        family_conclusion = 'Вариант только с ручными признаками превосходит компактную комбинацию сигналов на этой валидации.'
+    else:
+        family_conclusion = 'Различие двух отдельных семейств этим описательным сравнением устойчиво не подтверждено.'
     params = plan['parameters']
     train_rows = sum(s['rows'] for s in plan['training_snapshots'])
     train_queries = sum(s['queries'] for s in plan['training_snapshots'])
@@ -87,6 +96,9 @@ def section(cfg):
         f"Полная модель минус ручные признаки: ΔNDCG={manual_delta['mean']:+.5f}, "
         f"парный 95% интервал [{manual_delta['lower']:+.5f}; {manual_delta['upper']:+.5f}]. "
         'Это совместный эффект добавленной группы при данных параметрах, а не оценка каждого признака.', '',
+        family_conclusion,
+        f"Только ручные признаки минус только сигналы: ΔNDCG={groups_delta['mean']:+.5f}, "
+        f"парный 95% интервал [{groups_delta['lower']:+.5f}; {groups_delta['upper']:+.5f}].", '',
         f"Bootstrap: {plan['bootstrap_samples']} повторов по одним и тем же пользователям, seed={plan['seed']}. "
         'Валидация ранее использовалась для выбора полной модели; интервалы описательные, без коррекции множественных сравнений, '
         'не учитывают переобучение и смену периода. Они не заменяют независимую тестовую проверку новых вариантов.', '',

@@ -5,7 +5,7 @@
 
 Все 12 этапов завершены. [Итоговый отчёт](REPORT.md) · [Выполненный ноутбук](notebooks/kion_baseline.ipynb).
 Тестовая NDCG@10 — 0.15729, прирост к заранее выбранному контролю — 15.18%.
-Ноутбук содержит 13 выполненных ячеек кода; тесты — 21 passed.
+Ноутбук содержит 13 выполненных ячеек кода; тесты — 23 passed.
 
 ## Задача и протокол
 
@@ -225,6 +225,8 @@ python -m scripts.build_report
 Результаты: [feature_ablation_results.csv](results/feature_ablation_results.csv).
 Парные интервалы: [feature_ablation_intervals.json](results/feature_ablation_intervals.json).
 Постановка и точный состав групп: [feature_ablation_protocol.json](results/feature_ablation_protocol.json).
+Проверка сохранности исходных результатов, код обучения и исходные замеры fit:
+[feature_ablation_verification.json](results/feature_ablation_verification.json).
 Интерпретация и замеры затрат добавлены в [отчёт](REPORT.md).
 
 Каждое обучение и замер предсказания выполняются последовательно в отдельных процессах.
