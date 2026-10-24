@@ -1,0 +1,54 @@
+{
+  "baseline_preservation": {
+    "changed": [],
+    "files_checked": 46
+  },
+  "real_input_check": {
+    "input_id": "6b7ffbd508ad56e88c9c4d3d0cdf82aca367acba8a6b479b957e9f0956939b85",
+    "protected_files": 65,
+    "stages": [
+      {
+        "command": "prepare",
+        "log": "artifacts/autofeatures/implementation_15_22_check/resources/prepare_20261024T202654442282.log",
+        "memory_limit_exceeded": false,
+        "peak_tree_rss_mb": 133.03125,
+        "returncode": 0,
+        "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+        "seconds": 0.585841917025391,
+        "threads": 2
+      },
+      {
+        "command": "verify",
+        "log": "artifacts/autofeatures/implementation_15_22_check/resources/verify_20261024T202750222215.log",
+        "memory_limit_exceeded": false,
+        "peak_tree_rss_mb": 133.078125,
+        "returncode": 0,
+        "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+        "seconds": 0.47421954199671745,
+        "threads": 2
+      }
+    ],
+    "test_evaluated": false
+  },
+  "research_sources": {
+    "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+    "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+    "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+    "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+    "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+    "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+    "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+    "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+    "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+    "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+    "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+    "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+  },
+  "scope": "Implementation commits 15-22; no main research search, validation or test executed",
+  "tests": {
+    "command": "python -m pytest -q",
+    "includes": "All-feature independent reference; temporal boundaries; synthetic full lifecycle; real memory watchdog",
+    "passed": 37,
+    "seconds": 14.73
+  }
+}

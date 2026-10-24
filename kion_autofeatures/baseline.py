@@ -69,8 +69,12 @@ class Baseline:
             record = read_json(path)
             if record["research"] != self.research.to_dict():
                 raise ValueError("Run already exists with a different research configuration")
+            if record["input_id"] != digest({k: v for k, v in record.items() if k != "input_id"}):
+                raise ValueError("Research input receipt is corrupted")
             verify_files(self.cfg.root, record["protected_files"])
             return record
+        from kion.final import verify_files as verify_baseline_final
+        verify_baseline_final(self.cfg, read_json(self.cfg.path("results_dir") / "test_manifest.json"))
         record = {"research": self.research.to_dict(), "baseline_config": self.cfg.to_dict(),
                   "families": self.families, "parameters": self.frozen["parameters"],
                   "versions": versions, "python": platform.python_version(),

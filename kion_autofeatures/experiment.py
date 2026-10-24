@@ -54,20 +54,29 @@ def dataset_path(research, stage, spec, training):
     return research.artifacts / "datasets" / stage / f'{spec["cutoff"]}_{role}.parquet'
 
 
-def build_datasets(research, baseline, selection, stage="validation"):
+def build_datasets(research, baseline, selection, stage="validation", role="all"):
     if stage not in ("validation", "test"):
         raise ValueError("Unknown dataset stage")
     if stage == "test":
         from .final import verify_frozen
         verify_frozen(research, baseline)
+        if role == "all":
+            raise ValueError("Final training datasets must be built before final evaluation datasets")
+    if role not in ("all", "train", "evaluation"):
+        raise ValueError("Unknown dataset role")
     train_specs, evaluation_spec = baseline.snapshots(stage)
     events, users, items = load_prepared(baseline.cfg)
     # Outer validation does not read targets from the final test week.
-    if stage == "validation":
+    if stage == "validation" or role == "train":
         events = events.loc[events.day < day_number(baseline.cfg.test_cutoff)].copy()
     specs = resolve_specs(sorted(set(selection["selected"] + selection["random"])))
     receipts = []
-    for spec, training in [*((s, True) for s in train_specs), (evaluation_spec, False)]:
+    requested = []
+    if role in ("all", "train"):
+        requested.extend((s, True) for s in train_specs)
+    if role in ("all", "evaluation"):
+        requested.append((evaluation_spec, False))
+    for spec, training in requested:
         pairs = baseline.read_snapshot(spec, ["user_id", "item_id"])
         started = time.perf_counter()
         with RSSMonitor() as memory:
@@ -78,7 +87,7 @@ def build_datasets(research, baseline, selection, stage="validation"):
                          "process_peak_rss_mb": memory.peak / 1024**2})
         del engine, pairs
         gc.collect()
-    snapshot = make_snapshot(events, evaluation_spec["cutoff"], baseline.cfg.horizon_days)
+    snapshot = None if role == "train" else make_snapshot(events, evaluation_spec["cutoff"], baseline.cfg.horizon_days)
     return train_specs, evaluation_spec, snapshot, receipts
 
 
@@ -97,7 +106,7 @@ def load_frame(research, baseline, stage, spec, training, columns):
 
 
 def score_reference(research, baseline, spec, snapshot, columns, model_path, expected,
-                    out, identity):
+                    out, identity, stage="validation"):
     """Reuse a frozen model, but reproduce its scores and benchmark prediction."""
     from catboost import CatBoostRanker, Pool
     out = Path(out)
@@ -107,7 +116,9 @@ def score_reference(research, baseline, spec, snapshot, columns, model_path, exp
     existing = checked_receipt(out / "reference.json", signature)
     if existing:
         return existing
-    frame = baseline.read_snapshot(spec, ["user_id", "item_id"] + columns)
+    frame = (load_frame(research, baseline, stage, spec, False, columns)
+             if any(c.startswith("auto__") for c in columns)
+             else baseline.read_snapshot(spec, ["user_id", "item_id"] + columns))
     cats = [c for c in baseline.frozen["categorical_features"] if c in columns]
     out.mkdir(parents=True, exist_ok=True)
     with RSSMonitor() as memory:
@@ -128,7 +139,7 @@ def score_reference(research, baseline, spec, snapshot, columns, model_path, exp
     scored = frame[["user_id", "item_id"]].copy()
     scored["score"] = predicted
     metrics, per_user = evaluate_scores(scored, snapshot.targets, "score")
-    if any(abs(metrics[m] - expected[m]) > 1e-10 for m in ("ndcg@10", "recall@10", "map@10")):
+    if expected is not None and any(abs(metrics[m] - expected[m]) > 1e-10 for m in ("ndcg@10", "recall@10", "map@10")):
         raise ValueError("Reference scores do not reproduce the published metrics")
     scored.to_parquet(out / "predictions.parquet", index=False)
     per_user.to_parquet(out / "per_user.parquet")
@@ -175,6 +186,9 @@ def collect_results(research, stage, records, identity, generation):
                               "note": "Fixed-model user bootstrap; no refit/temporal uncertainty or multiplicity correction"})
     files = {csv_path.name: sha256(csv_path), interval_path.name: sha256(interval_path)}
     for artifact in sorted(out.rglob("*")):
+        if artifact.is_file() and ".tmp" not in artifact.name:
+            files[os.path.relpath(artifact, research.results)] = sha256(artifact)
+    for artifact in sorted((research.artifacts / "datasets" / stage).rglob("*")):
         if artifact.is_file() and ".tmp" not in artifact.name:
             files[os.path.relpath(artifact, research.results)] = sha256(artifact)
     record = {"identity": identity, "files": files, "models": records,
