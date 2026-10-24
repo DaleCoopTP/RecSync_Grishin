@@ -1,0 +1,11 @@
+{
+  "model_sha256": "632ae25d419a001e60943d22b7a87aba084cd87322ba1e26c790b482cc937452",
+  "reloaded_metrics": {
+    "ndcg@10": 0.15379418025397162,
+    "recall@10": 0.22415111581559033,
+    "map@10": 0.10759310183200117,
+    "candidate_recall@200": 0.539750844210885,
+    "users": 10852
+  },
+  "test_evaluated": false
+}

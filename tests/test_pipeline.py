@@ -27,3 +27,21 @@ def test_validation_pipeline_and_cached_re_evaluation(tmp_path):
     assert len(result["snapshots"]) == 4
     assert cfg.test_cutoff not in [s["cutoff"] for s in result["snapshots"]]
     assert (cfg.path("results_dir") / "validation_results.csv").exists()
+
+
+def test_freeze_accepts_validation_only_and_rejects_changed_config(tmp_path):
+    import pytest
+    from kion.io import write_json
+    from scripts.freeze_validation import freeze
+    # Reuse the end-to-end synthetic experiment, then read its actual configuration.
+    test_validation_pipeline_and_cached_re_evaluation(tmp_path)
+    run = json.loads((tmp_path / 'results/validation_manifest.json').read_text())
+    cfg = Config(**run['config'], root=tmp_path)
+    write_json(tmp_path / 'results/sample_manifest.json',
+               {'sample_users': cfg.sample_users, 'seed': cfg.seed, 'sample_rows': 300, 'user_ids_sha256': 'synthetic'})
+    frozen = freeze(cfg)
+    assert frozen['test_evaluated'] is False
+    assert frozen['test_cutoff_reserved'] == cfg.test_cutoff
+    assert (tmp_path / 'results/grid_results.csv').exists()
+    with pytest.raises(ValueError, match='Configuration'):
+        freeze(replace(cfg, iterations=cfg.iterations + 1))

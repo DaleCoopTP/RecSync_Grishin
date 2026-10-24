@@ -9,7 +9,7 @@ import tomllib
 class Config:
     seed: int = 42
     sample_users: int = 100000
-    threads: int = 6
+    threads: int = 2
     data_dir: str = "data"
     artifact_dir: str = "artifacts"
     results_dir: str = "results"
@@ -29,7 +29,7 @@ class Config:
     windows: list[int] = field(default_factory=lambda: [7, 30, 90])
     depths: list[int] = field(default_factory=lambda: [6, 8])
     l2_values: list[int] = field(default_factory=lambda: [3, 10])
-    iterations: int = 1500
+    iterations: int = 300
     learning_rate: float = 0.05
     early_stopping: int = 100
     bootstrap_samples: int = 1000

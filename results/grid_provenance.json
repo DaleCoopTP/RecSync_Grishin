@@ -1,0 +1,92 @@
+[
+  {
+    "name": "depth6_l23",
+    "depth": 6,
+    "l2_leaf_reg": 3,
+    "iterations": 288,
+    "trained_iterations": 300,
+    "seconds": 1.1035287500126287,
+    "metrics": {
+      "ndcg@10": 0.15367001134747374,
+      "recall@10": 0.22433072321455008,
+      "map@10": 0.10734941366684692,
+      "candidate_recall@200": 0.539750844210885,
+      "users": 10852
+    },
+    "prefix_reuse": {
+      "source_checkpoint": "/Users/lucifer/PycharmProjects/PythonProject1/artifacts/fa9c9b9d4e77d0bfc946/models/depth6_l23.cbm",
+      "source_sha256": "f982a78ff98cb737cdaaa8352ac196bc065c6650ee6567e1be2870d3449772df",
+      "source_trained_iterations": 1500,
+      "source_saved_trees": 1486,
+      "source_threads": 6,
+      "prefix_budget": 300,
+      "note": "Only the allowed prefix of validation history selects trees; later trees and metrics are excluded.",
+      "original_exploratory_result": {
+        "name": "depth6_l23",
+        "depth": 6,
+        "l2_leaf_reg": 3,
+        "iterations": 1486,
+        "seconds": 1961.1220061249915,
+        "metrics": {
+          "ndcg@10": 0.15800732866944794,
+          "recall@10": 0.22716513096274027,
+          "map@10": 0.11119455039595942,
+          "candidate_recall@200": 0.539750844210885,
+          "users": 10852
+        }
+      }
+    },
+    "model_sha256": "267c60bfd70ee0bde4d7e9cb3a5649315c46a6729b4de6c1cbd58fa999bc0a9c"
+  },
+  {
+    "name": "depth6_l210",
+    "depth": 6,
+    "l2_leaf_reg": 10,
+    "iterations": 298,
+    "trained_iterations": 300,
+    "seconds": 801.8220133329742,
+    "metrics": {
+      "ndcg@10": 0.15007491516649976,
+      "recall@10": 0.2226054255495084,
+      "map@10": 0.10388122287248847,
+      "candidate_recall@200": 0.539750844210885,
+      "users": 10852
+    },
+    "prefix_reuse": null,
+    "model_sha256": "89a7a72bd2865ccbb3dc8e97b5eeec6975ba4112a87c6ea2aca12469d9eaa07b"
+  },
+  {
+    "name": "depth8_l23",
+    "depth": 8,
+    "l2_leaf_reg": 3,
+    "iterations": 299,
+    "trained_iterations": 300,
+    "seconds": 898.3970093750395,
+    "metrics": {
+      "ndcg@10": 0.15379418025397162,
+      "recall@10": 0.22415111581559033,
+      "map@10": 0.10759310183200117,
+      "candidate_recall@200": 0.539750844210885,
+      "users": 10852
+    },
+    "prefix_reuse": null,
+    "model_sha256": "632ae25d419a001e60943d22b7a87aba084cd87322ba1e26c790b482cc937452"
+  },
+  {
+    "name": "depth8_l210",
+    "depth": 8,
+    "l2_leaf_reg": 10,
+    "iterations": 299,
+    "trained_iterations": 300,
+    "seconds": 849.3716911670053,
+    "metrics": {
+      "ndcg@10": 0.15010450402236686,
+      "recall@10": 0.22304662448678286,
+      "map@10": 0.10382456410418393,
+      "candidate_recall@200": 0.539750844210885,
+      "users": 10852
+    },
+    "prefix_reuse": null,
+    "model_sha256": "e232859e6df5abfc4312715b0de7b26406e0310f536dedbfbee31660813a9989"
+  }
+]

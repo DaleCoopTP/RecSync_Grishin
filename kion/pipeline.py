@@ -117,13 +117,15 @@ def _save_evaluation(cfg, out, validation, targets, manifest, ablation, run):
     return result
 
 
-def run_validation(cfg, tables=None, fit=True):
+def run_validation(cfg, tables=None, fit=True, prefix_source=None):
     started = time.perf_counter()
     cfg.path("results_dir").mkdir(parents=True, exist_ok=True)
     if tables is None:
         if not (prepared_dir(cfg) / "manifest.json").exists():
             prepare(cfg)
         tables = load_prepared(cfg)
+    pa.set_cpu_count(cfg.threads)
+    pa.set_io_thread_count(cfg.threads)
     events, users, items = tables
     out, run = context(cfg, tables)
     paths, cache_info = [], []
@@ -138,7 +140,14 @@ def run_validation(cfg, tables=None, fit=True):
     validation = compact(pd.read_parquet(val_path))
     models = out / "models"
     if fit:
-        manifest = fit_grid(train, validation, snapshot.targets, cfg, models)
+        if prefix_source:
+            prefix_source = Path(prefix_source).resolve()
+            # Exact feature/label/row identity, not merely matching filenames or schema.
+            for path in [*paths, val_path]:
+                if sha256(prefix_source / path.name) != sha256(path):
+                    raise ValueError("Prefix source snapshot differs from current training/validation data")
+        manifest = fit_grid(train, validation, snapshot.targets, cfg, models, prefix_source,
+                            input_signature=[s["sha256"] for s in cache_info])
         ablation = fit_ablation(train, validation, snapshot.targets, cfg, manifest, models)
         del train
         gc.collect()
@@ -149,7 +158,7 @@ def run_validation(cfg, tables=None, fit=True):
             raise ValueError("Model checksum mismatch")
         restored = CatBoostRanker(); restored.load_model(str(models / "selected_model.cbm"))
         scored = validation[["user_id", "item_id"]].copy()
-        scored["score"] = restored.predict(Pool(validation[manifest["features"]], cat_features=manifest["categorical_features"]))
+        scored["score"] = restored.predict(Pool(validation[manifest["features"]], cat_features=manifest["categorical_features"], thread_count=cfg.threads), thread_count=cfg.threads)
         repeated, _ = evaluate_scores(scored, snapshot.targets, "score")
         if any(abs(repeated[m] - manifest["selected"]["metrics"][m]) > 1e-10 for m in ["ndcg@10", "recall@10", "map@10"]):
             raise ValueError("Reloaded model metrics differ from recorded validation results")
@@ -178,6 +187,6 @@ def recommend(cfg, user_id, k=10):
         return {"user_id": user_id, "as_of": snapshot.cutoff, "method": "catboost", "item_ids": []}
     frame = store.transform(pairs)
     model = CatBoostRanker(); model.load_model(str(out / "models" / "selected_model.cbm"))
-    scores = model.predict(Pool(frame[manifest["features"]], cat_features=manifest["categorical_features"]))
+    scores = model.predict(Pool(frame[manifest["features"]], cat_features=manifest["categorical_features"], thread_count=cfg.threads), thread_count=cfg.threads)
     order = np.lexsort((frame.item_id.to_numpy(), -scores))[:k]
     return {"user_id": user_id, "as_of": snapshot.cutoff, "method": "catboost", "item_ids": frame.item_id.to_numpy()[order].tolist(), "scores": scores[order].tolist()}

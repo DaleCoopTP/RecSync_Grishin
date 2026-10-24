@@ -1,6 +1,6 @@
 seed = 42
 sample_users = 100000
-threads = 6
+threads = 2
 data_dir = "data"
 artifact_dir = "artifacts"
 results_dir = "results"
@@ -20,7 +20,7 @@ batch_users = 256
 windows = [7, 30, 90]
 depths = [6, 8]
 l2_values = [3, 10]
-iterations = 1500
+iterations = 300
 learning_rate = 0.05
 early_stopping = 100
 bootstrap_samples = 1000
