@@ -1,0 +1,12 @@
+baseline_config = "config.toml"
+run_name = "main"
+threads = 2
+inner_users = 1000
+screen_iterations = 120
+screen_depth = 6
+max_features = 64
+prefix_sizes = [16, 32, 64]
+tie_tolerance = 0.0001
+batch_rows = 20000
+memory_limit_gib = 6.0
+prediction_repeats = 3
