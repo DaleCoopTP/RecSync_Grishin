@@ -179,6 +179,9 @@ def build(cfg):
         f"Исходники выполнения: `results/final_execution_sources.json`, Git-коммит обучения `{source.get('git_commit', 'указан в манифесте исходников')}`; локальная копия — `{source.get('snapshot_directory', 'не создавалась')}`.",
         'Основные доказательства: `results/frozen_validation.json`, `results/final_protocol.json`, `results/test_manifest.json`, `results/test_confidence_intervals.json`, `results/test_reload_verification.json`.',
     ]
+    from scripts.build_feature_ablation_report import section
+    position = lines.index('## Итоговый тест')
+    lines[position:position] = section(cfg)
     destination = cfg.root / 'REPORT.md'
     destination.write_text('\n'.join(lines) + '\n')
     return destination
