@@ -17,5 +17,6 @@
     "kion/training.py": "9bfe556bf193f10244de4d15a751e8ccb7ea5d7d54e5dacd67dce39787d7fa69"
   },
   "snapshot_directory": "artifacts/execution_sources/ac82d677ff181775d566f31b194927a654c3869ae03757541a0dcdfe5deb5b7d",
-  "note": "Exact Python sources loaded by the final run; serving/CLI routing may be updated after training without changing fitted models."
+  "note": "Exact Python sources loaded by the final run; serving/CLI routing may be updated after training without changing fitted models.",
+  "git_commit": "24625fd9c8d4d8f82694d8e8fe25996a4f6de4cc"
 }

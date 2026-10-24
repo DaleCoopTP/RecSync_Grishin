@@ -36,7 +36,16 @@ def main():
         from .protocol import prepare
         import json
         print(json.dumps(prepare(cfg, args.archive), ensure_ascii=False, indent=2))
-    elif args.command in {"train", "evaluate", "run"}:
+    elif args.command == "evaluate":
+        import json
+        if (cfg.path("results_dir") / "frozen_validation.json").exists():
+            from scripts.verify_validation import verify
+            result = verify(cfg)
+        else:
+            from .pipeline import run_validation
+            result = run_validation(cfg, fit=False)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+    elif args.command in {"train", "run"}:
         from .pipeline import run_validation
         import json
         result = run_validation(cfg, fit=args.command != "evaluate", prefix_source=args.reuse_prefix_from)

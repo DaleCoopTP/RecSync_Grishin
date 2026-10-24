@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "purpose": "Technical end-to-end check of scripts.reproduce, not a quality experiment",
+  "sample_users": 1000,
+  "max_iterations": 10,
+  "fixed_refit_iterations": 10,
+  "all_stages": [
+    "archive audit",
+    "sampling",
+    "validation grid",
+    "validation reload",
+    "freeze",
+    "test lock",
+    "both fixed refits",
+    "held-out evaluation",
+    "final reload"
+  ],
+  "test_manifest_sha256": "8b2ff4964eedd1ba09f473837d8663a3d1926eb179a3b3b27729858210f32fb4",
+  "verification_tolerance": 1e-10,
+  "used_for_primary_conclusions": false
+}

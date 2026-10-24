@@ -1,0 +1,15 @@
+{
+  "validation_ndcg": 0.15379418025397162,
+  "test_ndcg": 0.15729445014618834,
+  "reference_method": "popularity_7d",
+  "relative_gain_percent": 15.184548883048166,
+  "paired_ndcg_difference": {
+    "mean": 0.020735813009972976,
+    "lower": 0.01803895430804464,
+    "upper": 0.02355714546627442
+  },
+  "test_users": 11425,
+  "zero_positive_candidates_users": 3123,
+  "oracle_candidate_ndcg": 0.5910539168375302,
+  "test_evaluated": true
+}
