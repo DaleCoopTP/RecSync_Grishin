@@ -1,0 +1,21 @@
+{
+  "code_fingerprint": "ac82d677ff181775d566f31b194927a654c3869ae03757541a0dcdfe5deb5b7d",
+  "files": {
+    "kion/__init__.py": "c77bb865ed209d2f4ebd2dbfbe6f5721b5c592a32967ec76799e6ad9ba158922",
+    "kion/candidates.py": "e6041e1986e2bf1ad29c39a0f3b570cf2dd716991095b130d90d8c2d47894ab7",
+    "kion/cli.py": "79d0aeec5ad2e11df6050bc8905bffd8362a7e3c11e0d3abd38862c2bf8ca514",
+    "kion/config.py": "7ec918f96b88136366c3587ae5031b72350624ec91923b9a5c5647fcc3568253",
+    "kion/data.py": "a6b5a2a8f2c3daf343847b5ad03c313d0ac4c23716a889d903c9ac6edb32e1d6",
+    "kion/dataset.py": "b3bd40b7b88a971c2dd2b814052b69ad1cdf14e816a8f54d3092a91a9c0e9994",
+    "kion/features.py": "08ccee8a113f14e962674d5c5edfbd7cb1049852d971704ca2477006455d8b68",
+    "kion/final.py": "f6a9ef49b5d64366f3876625a3c7a3cbdba166629e41d87aba41014cbcfa1183",
+    "kion/inference.py": "1dd8797fcf1286781ddc7c0a980564032d473b508de919654c959ce4fa7a2dc5",
+    "kion/io.py": "d4390d09a9a2cb0454adb4f812462c35a1a651937f2a060f2a7d5663bd1fa04a",
+    "kion/metrics.py": "554f572075e8065d0a29aafbce3ebb79044e6ea055c272aedab465fa23742636",
+    "kion/pipeline.py": "122c0b5e5d79aabdb5528514c9ed4af659ec89ca7c66674983ff66fe9110a3a7",
+    "kion/protocol.py": "277fd23ed5a2d96cbd9f140e6148ba40f7dc0b390fed52a5a7ef9a7ca82abeaf",
+    "kion/training.py": "9bfe556bf193f10244de4d15a751e8ccb7ea5d7d54e5dacd67dce39787d7fa69"
+  },
+  "snapshot_directory": "artifacts/execution_sources/ac82d677ff181775d566f31b194927a654c3869ae03757541a0dcdfe5deb5b7d",
+  "note": "Exact Python sources loaded by the final run; serving/CLI routing may be updated after training without changing fitted models."
+}

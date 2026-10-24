@@ -1,0 +1,14 @@
+{
+  "verified": true,
+  "test_cutoff": "2021-08-16",
+  "model_sha256": "3ab83aaba1472ba6f2e8aaffc11e8dbe35be88e8f14a2016b981c742873e5d5c",
+  "ablation_sha256": "11264ff4fd7896d0280a5137c5054c1995e211fa0168c61589546a179ff4c585",
+  "metrics": {
+    "ndcg@10": 0.15729445014618834,
+    "recall@10": 0.2315141541058052,
+    "map@10": 0.10896145709114344,
+    "candidate_recall@200": 0.5436674425755706,
+    "users": 11425
+  },
+  "tolerance": 1e-10
+}

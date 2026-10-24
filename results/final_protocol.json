@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "locked_at_utc": "2026-10-24T11:57:58.709181+00:00",
+  "frozen_validation_sha256": "b60e8ff897ba7b0a1106551f486de6410b06034e3a742fc441e9efd2719fe6bc",
+  "config_fingerprint": "c8033ceb0eefb797",
+  "selection_source_commit": "258a2f482337d4731804995c5afc14bcf62e4357",
+  "invariant_sources": {
+    "kion/__init__.py": "c77bb865ed209d2f4ebd2dbfbe6f5721b5c592a32967ec76799e6ad9ba158922",
+    "kion/candidates.py": "e6041e1986e2bf1ad29c39a0f3b570cf2dd716991095b130d90d8c2d47894ab7",
+    "kion/config.py": "7ec918f96b88136366c3587ae5031b72350624ec91923b9a5c5647fcc3568253",
+    "kion/data.py": "a6b5a2a8f2c3daf343847b5ad03c313d0ac4c23716a889d903c9ac6edb32e1d6",
+    "kion/dataset.py": "b3bd40b7b88a971c2dd2b814052b69ad1cdf14e816a8f54d3092a91a9c0e9994",
+    "kion/features.py": "08ccee8a113f14e962674d5c5edfbd7cb1049852d971704ca2477006455d8b68",
+    "kion/io.py": "d4390d09a9a2cb0454adb4f812462c35a1a651937f2a060f2a7d5663bd1fa04a",
+    "kion/metrics.py": "554f572075e8065d0a29aafbce3ebb79044e6ea055c272aedab465fa23742636",
+    "kion/pipeline.py": "122c0b5e5d79aabdb5528514c9ed4af659ec89ca7c66674983ff66fe9110a3a7",
+    "kion/protocol.py": "277fd23ed5a2d96cbd9f140e6148ba40f7dc0b390fed52a5a7ef9a7ca82abeaf",
+    "kion/training.py": "9bfe556bf193f10244de4d15a751e8ccb7ea5d7d54e5dacd67dce39787d7fa69"
+  },
+  "training_cutoffs": [
+    "2021-07-19",
+    "2021-07-26",
+    "2021-08-02",
+    "2021-08-09"
+  ],
+  "test_cutoff": "2021-08-16",
+  "reference_method": "popularity_7d",
+  "bootstrap": {
+    "samples": 1000,
+    "seed": 42,
+    "unit": "user",
+    "confidence": 0.95,
+    "method": "percentile"
+  },
+  "models": [
+    "catboost",
+    "catboost_without_personal_features"
+  ],
+  "train_users_per_cutoff": 5000,
+  "selection_note": "Parameters, comparator and analysis are locked before test evaluation. No early stopping or tuning on test.",
+  "diagnostics": [
+    "history_length:1-2,3-9,10+",
+    "retrieval:zero/nonzero_positive_candidates"
+  ]
+}

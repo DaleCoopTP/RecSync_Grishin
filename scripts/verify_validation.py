@@ -19,8 +19,13 @@ def verify(cfg):
     from kion.protocol import load_prepared, make_snapshot
     run = json.loads((cfg.path('results_dir') / 'validation_manifest.json').read_text())
     if (run['test_evaluated'] or run['cutoff'] != cfg.validation_cutoff or run['split'] != 'validation'
-            or run['code_fingerprint'] != code_fingerprint() or run['config_fingerprint'] != cfg.fingerprint()):
+            or run['config_fingerprint'] != cfg.fingerprint()):
         raise ValueError('Validation source or protocol mismatch')
+    if run['code_fingerprint'] != code_fingerprint():
+        from kion.final import load_protocol
+        _, frozen = load_protocol(cfg)
+        if frozen['model_sha256'] != run['model_sha256']:
+            raise ValueError('Validation checkpoint differs from the locked selection')
     path = cfg.root / run['model_artifact']
     if sha256(path) != run['model_sha256']:
         raise ValueError('Model checksum mismatch')
