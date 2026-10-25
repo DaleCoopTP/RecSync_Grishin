@@ -30,7 +30,7 @@ def read(path):
 def load_evidence():
     research = ResearchConfig.load(ROOT / "autofeatures.toml")
     required = ("inputs", "search", "selection", "validation", "frozen", "test",
-                "test_intervals", "test_verification", "validation_verification")
+                "test_intervals", "test_verification", "validation_verification", "random_subsets")
     for name in required:
         if not (research.results / f"{name}.json").is_file():
             raise FileNotFoundError(f"Complete the experiment first: {name}.json")
@@ -90,6 +90,59 @@ def build():
     ax.legend(fontsize=9)
     fig.savefig(output / "inner_selection.png", dpi=160)
     plt.close(fig)
+    subsets = evidence["random_subsets"]
+    if subsets["test_evaluated"] or not all(subsets["comparability"].values()):
+        raise ValueError("Random-subset diagnostic must reuse the inner split and never the test")
+    runs = pd.DataFrame(subsets["results"])
+    draws = runs.loc[runs.kind == "random_draw"].sort_values("ndcg@10").reset_index(drop=True)
+    seeds = runs.loc[runs.kind.isin(["selected", "selected_seed"])]
+    chosen_ndcg = runs.loc[runs.kind == "selected", "ndcg@10"].iloc[0]
+    frozen_ndcg = runs.loc[runs.kind == "frozen_random", "ndcg@10"].iloc[0]
+    fig, ax = plt.subplots(figsize=(9, 3.4), layout="constrained")
+    ax.axvline(chosen_ndcg, color="#9aa3ab", linewidth=1, linestyle="--", zorder=1)
+    # Alternate small vertical offsets so close values stay visible as separate dots.
+    ax.scatter(draws["ndcg@10"], 2 + (draws.index % 3 - 1) * .14, s=56, color="#bcc3ca",
+               edgecolor="#6b7883", linewidth=.8, zorder=2)
+    ax.scatter([frozen_ndcg], [1], marker="D", s=72, color="#54876a", edgecolor="white", linewidth=1.5, zorder=3)
+    other = seeds.loc[seeds.kind == "selected_seed", "ndcg@10"].sort_values().to_numpy()
+    ax.scatter(other, [(-1) ** n * .14 for n in range(len(other))], s=48, facecolor="white",
+               edgecolor="#d77d28", linewidth=1.6, zorder=2, label="Other CatBoost seeds")
+    ax.scatter([chosen_ndcg], [0], s=80, color="#d77d28", edgecolor="white", linewidth=1.5, zorder=3,
+               label="Seed 42 (frozen)")
+    ax.annotate(f"{chosen_ndcg:.5f}", (chosen_ndcg, 0), xytext=(-10, -24), textcoords="offset points",
+                ha="right", fontsize=9, color="#333333")
+    ax.annotate(f"{frozen_ndcg:.5f}", (frozen_ndcg, 1), xytext=(10, 0), textcoords="offset points",
+                ha="left", va="center", fontsize=9, color="#333333")
+    ax.set_yticks([0, 1, 2], ["Selected A", "Frozen random\n(test control)", f"{len(draws)} new\nrandom sets"])
+    ax.set_ylim(-.5, 2.5)
+    ax.grid(axis="x", color="#e6e6e6", linewidth=.8)
+    ax.set_axisbelow(True)
+    ax.set(xlabel="Inner macro NDCG@10 (2 August, 1,000 users)",
+           title=f"Selected {subsets['protocol']['size']} features vs random sets of the same size")
+    ax.legend(title="Selected A", title_fontsize=8, fontsize=8, loc="lower left",
+              bbox_to_anchor=(1.01, 0), frameon=False)
+    fig.savefig(output / "random_subsets.png", dpi=160)
+    plt.close(fig)
+    subset_rows = []
+    for metric in ("ndcg@10", "recall@10", "map@10"):
+        value = subsets["summary"][metric]
+        subset_rows.append({
+            "metric": metric, "selected": value["selected"],
+            "random": f"{value['random_mean']:.5f} ± {value['random_std']:.5f}",
+            "range": f"{value['random_min']:.5f} – {value['random_max']:.5f}",
+            "rank": f"{value['selected_among_draws']['rank']} из {value['selected_among_draws']['of']}",
+            "frozen": f"{value['frozen_random']:.5f} ({value['frozen_random_among_draws']['rank']} из {value['frozen_random_among_draws']['of']})",
+            "seeds": f"{value['selected_seed_min']:.5f} – {value['selected_seed_max']:.5f}"})
+    subset_table = markdown_table(pd.DataFrame(subset_rows), ["metric", "selected", "random", "range", "rank", "frozen", "seeds"],
+                                  ["Метрика", "Выбранный A", "Случайные: среднее ± sd", "Случайные: min – max",
+                                   "Место A", "Frozen random (место)", "A на 5 seed: min – max"])
+    subset_ndcg = subsets["summary"]["ndcg@10"]
+    subset_mean = subsets["paired_selected_minus"]["mean_of_draws"]["ndcg@10"]
+    subset_excluded = subsets["paired_ndcg_intervals_excluding_zero"]
+    subset_rank = subset_ndcg["selected_among_draws"]
+    subset_frozen_rank = subset_ndcg["frozen_random_among_draws"]
+    subset_ratio = subset_ndcg["random_std"] / subset_ndcg["selected_seed_std"]
+    subset_overlap = runs.loc[runs.kind == "random_draw", "overlap_with_selected"]
     quality = []
     for name in ORDER:
         quality.append({"variant": LABELS[name], "features": len(evidence["test"]["models"][name]["identity"]["columns"]),
@@ -142,6 +195,10 @@ def build():
 **{test.loc['random', 'ndcg@10']:.5f}** и превзошёл выбранный набор в диагностическом сравнении.
 Это содержательный отрицательный результат для конкретного способа отбора,
 одного seed и одной недели. После теста метод не менялся.
+Диагностика после теста на внутреннем разбиении, без тестовых данных: среди
+{subsets['protocol']['draws']} новых случайных наборов того же размера выбранный занимает
+**{subset_rank['rank']}-е место из {subset_rank['of']}**, frozen random — {subset_frozen_rank['rank']}-е.
+Отбор отсекает худшие наборы, но польза сверх случайного выбора не показана.
 
 ## 1. Данные и смысл задачи
 
@@ -332,7 +389,56 @@ R — 4.38%. При коррелированных колонках важнос
 Возможные объяснения проигрыша random: коррелированные краткосрочные статистики
 получили высокую обучающую важность, внутренние 1000 пользователей и одна неделя
 дали нестабильный отбор. Более разнообразный random мог оказаться удачным.
-Это гипотезы: компонентных абляций и повторных случайных наборов здесь нет.
+Компонентных абляций здесь нет; насколько типичен сам случайный контроль,
+проверено повторными наборами ниже.
+
+### Повторные случайные наборы: диагностика после теста
+
+Чтобы отличить слабый отбор от неудачного единственного сравнения, после теста
+обучены ещё {subsets['protocol']['draws']} случайных наборов по {subsets['protocol']['size']} агрегатов
+по правилу frozen random: равномерно без возвращения из {subsets['protocol']['eligible']}
+допустимых признаков, с отдельными seed. Использовано только внутреннее
+разбиение поиска: обучение 19/26 июля, оценка 2 августа на тех же 1000
+пользователях. Тест не использовался; метод, frozen-печать и все прежние
+результаты не менялись. Разбиение восстановлено из кэшей поиска и совпало
+с fit выбранного префикса по SHA-256, повтор этого fit дал те же прогнозы
+(atol=1e-10). Чтобы отделить вклад признаков от шума обучения, выбранный
+набор обучен ещё с {subsets['protocol']['extra_seeds_for_selected']} seed CatBoost. Модели и параметры
+те же: {subsets['protocol']['parameters']['iterations']} деревьев, depth={subsets['protocol']['parameters']['depth']}, без early stopping.
+
+{subset_table}
+
+![Выбранный набор среди случайных](results/autofeatures/main/report/random_subsets.png)
+
+Выбранный набор — **{subset_rank['rank']}-й из {subset_rank['of']}** по NDCG@10:
+{subset_rank['draws_at_least']} из {subsets['protocol']['draws']} случайных наборов не хуже,
+одностороннее эмпирическое p = {subset_rank['empirical_p_one_sided']:.2f}. Он выше среднего
+случайного набора на {subset_mean['mean']:+.5f}, парный 95% CI
+[{subset_mean['lower']:+.5f}; {subset_mean['upper']:+.5f}] включает ноль. Из
+{subsets['protocol']['draws']} парных интервалов {subset_excluded['selected_better']} исключают ноль в пользу выбранного
+(против самых слабых наборов), в пользу случайного — {subset_excluded['random_better'] or 'ни один'}.
+
+Разброс между случайными наборами (sd {subset_ndcg['random_std']:.5f}, от
+{subset_ndcg['random_min']:.5f} до {subset_ndcg['random_max']:.5f}) примерно в {subset_ratio:.0f} раз больше
+разброса выбранного набора по seed (sd {subset_ndcg['selected_seed_std']:.5f}). Значит, выбор
+агрегатов действительно влияет на качество, но importance-based отбор
+извлекает из этого мало: он избегает худших наборов, но не находит лучшие.
+Случайные наборы почти не пересекаются с выбранным ({subset_overlap.min()}–{subset_overlap.max()} общих
+агрегата из {subsets['protocol']['size']}), то есть близкое качество дают совсем другие признаки:
+словарь избыточен, и сильные наборы в нём не единственны.
+
+Frozen random и на внутреннем разбиении выше выбранного:
+{subset_ndcg['frozen_random']:.5f}, {subset_frozen_rank['rank']}-е место из {subset_frozen_rank['of']}. Тестовым контролем
+оказался удачный, а не типичный случайный набор. Остальные наборы на тесте
+не оценивались, поэтому прямого вывода о тесте отсюда нет.
+
+Оговорки: 1000 пользователей и одна неделя дают парные интервалы порядка
+±0.005, шире большинства различий. Размер префикса 16 выбирался на этой же
+оценке, что слегка завышает выбранный набор и только усиливает вывод.
+Это дополнение после теста: оно объясняет результат, но не даёт нового
+независимого подтверждения и не меняет первичный вывод. Детали —
+[random_subsets.json](results/autofeatures/main/random_subsets.json),
+[CSV](results/autofeatures/main/random_subsets.csv).
 
 ### Сегменты
 
@@ -399,7 +505,7 @@ RSS вариантов внутри одного рабочего процесс
 и проверяет неизменность результата при искажении будущих значений.
 Автотесты отдельно проверяют синтетические граничные случаи и утечки.
 
-Ограничения: один датасет, одна когорта, seed и тестовая неделя; один random;
+Ограничения: один датасет, одна когорта, seed и тестовая неделя; один random на тесте;
 last-watch формат, отсутствие экспозиций и настоящих негативов; статические
 метаданные; warm-active оценка; заранее известный тестовый результат baseline.
 Правила новых моделей зафиксированы до их тестовой оценки, но это слабее
@@ -409,8 +515,11 @@ last-watch формат, отсутствие экспозиций и насто
 Содержательный вывод: словарь автоматически построенных агрегатов способен
 дать близкую точечную оценку, но выбранная схема importance-based отбора
 не доказала пользу сверх random и не подтвердила прибавку NDCG к S+R на тесте.
-Дальнейшие проверки — несколько прошлых временных folds, несколько seed/random
-контролей, отбор с учётом корреляции и стоимости — требуют нового протокола
+На внутреннем разбиении она находится в середине распределения случайных
+наборов того же размера.
+Дальнейшие проверки — несколько прошлых временных folds, распределение
+случайных контролей на внешней валидации, отбор с учётом корреляции и
+стоимости — требуют нового протокола
 и нового отложенного периода. Повторное использование этого теста для настройки
 превратит его в development-набор. Новых вариантов после теста здесь не обучали.
 
@@ -425,6 +534,10 @@ python -m kion_autofeatures verify
 python -m scripts.build_research_report
 python -m scripts.build_research_notebook --execute
 ```
+
+Диагностика случайных наборов обучает модели и отдельно запускается командой
+`python -m scripts.random_subsets` (около часа на данной машине, только внутреннее
+разбиение основного run; готовые fit переиспользуются).
 
 Ноутбук запускает полную проверку моделей; это десятки секунд на данной машине.
 Генератор останавливается при отсутствии готовых артефактов, обучения по fallback нет.
@@ -468,7 +581,8 @@ holdout. Для другого имени отчёты стадий поддер
 """
     (ROOT / "RESEARCH_REPORT.md").write_text(text)
     source_files = [directory / f"{name}.json" for name in evidence]
-    source_files += [directory / name for name in ("validation_results.csv", "test_results.csv", "test_segments.csv", "selected_features.csv")]
+    source_files += [directory / name for name in ("validation_results.csv", "test_results.csv", "test_segments.csv",
+                                                   "selected_features.csv", "random_subsets.csv")]
     source_files += [ROOT / "results" / "report_summary.json", Path(__file__)]
     summary = {"frozen_seal": evidence["frozen"]["seal"], "source_files": {
         str(path.relative_to(ROOT)): sha256(path) for path in source_files},
