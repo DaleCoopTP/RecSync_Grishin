@@ -80,7 +80,7 @@ def make_notebook():
     финальное переобучение также включает 9 августа, тест 16–22 августа 2021.
     Все исторические признаки используют даты строго раньше среза. KION хранит
     последнюю дату пары, а не полный журнал просмотров. Метаданные статические.
-    Исходный тест baseline был известен до второй части — ограничение исследования.
+    Тестовый результат baseline был известен до построения автоматических признаков; это ограничение исследования.
     """)
     code("""
     for name in ('inputs', 'selection', 'validation', 'frozen', 'test',
@@ -124,7 +124,7 @@ def make_notebook():
     display(prefixes)
     from kion_autofeatures.search import choose_prefix
     assert choose_prefix(selection['prefixes'], research.tie_tolerance)['size'] == selection['chosen_size'] == 16
-    display(pd.read_csv(D / 'selected_features.csv').astype(object).fillna('—'))
+    display(pd.read_csv(D / 'selected_features.csv').astype(object).fillna('нет'))
     display(pd.DataFrame([read(D / 'selection_summary.json')['operations']]))
     """)
     md("""
@@ -249,10 +249,10 @@ def make_notebook():
     ## Состав, сегменты и затраты
 
     Выбраны в основном суммы duration и краткосрочные статистики фильма/демографии.
-    Один прямой аналог ручной формулы — genre share за 30 дней. Важность A=48.25%
+    Прямой аналог ручной формулы один: доля жанров за 30 дней. Важность A=48.25%
     не равна дополнительному качеству: коррелированные признаки делят важность.
-    Малый внутренний срез, корреляции и временная нестабильность — гипотезы
-    проигрыша random, не доказанные причины. Отсутствуют компонентные абляции.
+    Проверка 20 случайными наборами (раздел 5 отчёта) показывает, что отбор по
+    важности отсекает худшие наборы, но не находит лучшие.
 
     Сегменты ниже описательные, без отдельных CI. Predict измеряет три прогретых
     пакетных вызова на готовых признаках, без retrieval/генерации/Pool. Историческое
@@ -288,7 +288,7 @@ def make_notebook():
     для независимого подтверждения после настройки. Одна неделя, last-watch,
     warm-active аудитория, статические метаданные и отсутствие экспозиций ограничивают вывод.
 
-    Полный отчёт: `RESEARCH_REPORT.md`, команды: `docs/automatic_features_usage.md`.
+    Полный отчёт: `REPORT.md`, команды: `docs/automatic_features_usage.md`.
     Проверка без обучения из корня проекта:
     ```bash
     python -m pytest -q
@@ -297,7 +297,7 @@ def make_notebook():
     python -m scripts.build_research_notebook --execute
     ```
     Полное повторение исследования после baseline: `python -m kion_autofeatures
-    reproduce --name reproduction_01` (новое имя). Оно обучает модели; этот ноутбук — только проверяет.
+    reproduce --name reproduction_01` (новое имя). Оно обучает модели, а этот ноутбук только проверяет.
     """)
     code("""
     after = {str(p.relative_to(ROOT)): (sha256(p), p.stat().st_mtime_ns) for p in unchanged_paths}

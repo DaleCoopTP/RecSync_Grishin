@@ -1,7 +1,7 @@
 {
   "returncode": 0,
   "memory_limit_exceeded": false,
-  "peak_tree_rss_mb": 3518.5,
-  "seconds": 52.19844674994238,
+  "peak_tree_rss_mb": 3369.296875,
+  "seconds": 44.608074375020806,
   "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once"
 }

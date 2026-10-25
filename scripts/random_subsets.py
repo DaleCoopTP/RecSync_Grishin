@@ -31,7 +31,14 @@ def rank_summary(values, reference):
             "empirical_p_one_sided": (at_least + 1) / (len(values) + 1)}
 
 
-def worker(root, draws, extra_seeds):
+def load_research(root, name=None):
+    from dataclasses import replace
+    from kion_autofeatures.config import ResearchConfig
+    research = ResearchConfig.load(root / "autofeatures.toml")
+    return replace(research, run_name=name) if name else research
+
+
+def worker(root, draws, extra_seeds, name=None):
     from kion_autofeatures.runtime import configure
     configure(2)
     import gc
@@ -41,7 +48,6 @@ def worker(root, draws, extra_seeds):
     from kion.metrics import bootstrap
     from kion.protocol import day_number, load_prepared
     from kion_autofeatures.baseline import KEYS, Baseline, attach_features
-    from kion_autofeatures.config import ResearchConfig
     from kion_autofeatures.engine import frame_digest
     from kion_autofeatures.experiment import load_selection
     from kion_autofeatures.io import digest, read_json, verify_files, write_json
@@ -49,7 +55,7 @@ def worker(root, draws, extra_seeds):
     from kion_autofeatures.search import choose_users, inner_validation
 
     started = time.perf_counter()
-    research = ResearchConfig.load(root / "autofeatures.toml")
+    research = load_research(root, name)
     baseline = Baseline(research)
     selection, identity = load_selection(research, baseline)
     search = read_json(research.results / "search.json")
@@ -184,18 +190,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--draws", type=int, default=20)
     parser.add_argument("--extra-seeds", type=int, default=4)
+    parser.add_argument("--name", help="Research run to diagnose; defaults to run_name in autofeatures.toml")
     parser.add_argument("--worker", action="store_true")
     args = parser.parse_args()
     if args.draws < 2 or args.extra_seeds < 1:
         parser.error("Use at least two draws and one extra seed")
     root = Path(__file__).resolve().parents[1]
     if args.worker:
-        worker(root, args.draws, args.extra_seeds)
+        worker(root, args.draws, args.extra_seeds, args.name)
         return
-    from kion_autofeatures.config import ResearchConfig
     from kion_autofeatures.runtime import execution_lock, monitor_process
     from kion_autofeatures.io import read_json, write_json
-    research = ResearchConfig.load(root / "autofeatures.toml")
+    research = load_research(root, args.name)
     directory = research.artifacts / "diagnostics" / "random_subsets"
     environment = os.environ.copy()
     for key in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
@@ -206,7 +212,8 @@ def main():
           f"{research.memory_limit_gib} GiB RSS limit; log={directory / 'random_subsets.log'}", flush=True)
     with execution_lock(root):
         resources = monitor_process([sys.executable, "-m", "scripts.random_subsets", "--draws", str(args.draws),
-                                     "--extra-seeds", str(args.extra_seeds), "--worker"],
+                                     "--extra-seeds", str(args.extra_seeds), "--worker",
+                                     *(["--name", args.name] if args.name else [])],
                                     directory / "random_subsets.log",
                                     int(research.memory_limit_gib * 1024**3), root, environment)
     if resources["returncode"] or resources["memory_limit_exceeded"]:
