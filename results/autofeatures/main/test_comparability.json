@@ -1,0 +1,99 @@
+{
+  "evaluation_pairs": 2284830,
+  "evaluation_users": 11425,
+  "frozen_seal": "8aa5502a0eba5ec202350035db8243174d70c3f845901c27f37821c0a7c5e956",
+  "identical_candidate_recall": true,
+  "identical_ordered_pairs": true,
+  "identical_users_and_targets": true,
+  "original_full_baseline_per_user_reproduced": true,
+  "refits": {
+    "auto": {
+      "early_stopping": false,
+      "features": 44,
+      "model_sha256": "f0249071236b5d4c388d17db411c5c125edb08514a1a024ade68eb5e325b3a33",
+      "parameters": {
+        "depth": 8,
+        "iterations": 299,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05,
+        "loss_function": "YetiRank",
+        "max_ctr_complexity": 1,
+        "random_seed": 42,
+        "thread_count": 2
+      },
+      "queries": 14704,
+      "rows": 2940779,
+      "test_labels_used": false
+    },
+    "random": {
+      "early_stopping": false,
+      "features": 44,
+      "model_sha256": "6578067a0808f10cdc041621c0f523c822b3db9c8b118daebd91d5d1e30eb69f",
+      "parameters": {
+        "depth": 8,
+        "iterations": 299,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05,
+        "loss_function": "YetiRank",
+        "max_ctr_complexity": 1,
+        "random_seed": 42,
+        "thread_count": 2
+      },
+      "queries": 14704,
+      "rows": 2940779,
+      "test_labels_used": false
+    },
+    "source": {
+      "early_stopping": false,
+      "features": 13,
+      "model_sha256": "9f9bdcab9a985595ccaa6afc73864af674a8d2367916efcb5e35a1c2394011f0",
+      "parameters": {
+        "depth": 8,
+        "iterations": 299,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05,
+        "loss_function": "YetiRank",
+        "max_ctr_complexity": 1,
+        "random_seed": 42,
+        "thread_count": 2
+      },
+      "queries": 14704,
+      "rows": 2940779,
+      "test_labels_used": false
+    },
+    "source_raw": {
+      "early_stopping": false,
+      "features": 28,
+      "model_sha256": "3e8e114a515008713ae842240578a7ca8dd5d184a975b67b65165832c29cd74e",
+      "parameters": {
+        "depth": 8,
+        "iterations": 299,
+        "l2_leaf_reg": 3,
+        "learning_rate": 0.05,
+        "loss_function": "YetiRank",
+        "max_ctr_complexity": 1,
+        "random_seed": 42,
+        "thread_count": 2
+      },
+      "queries": 14704,
+      "rows": 2940779,
+      "test_labels_used": false
+    }
+  },
+  "retrieval_zero_hit_users": 3123,
+  "test_cutoff": "2021-08-16",
+  "test_evaluated": true,
+  "training_cutoffs": [
+    "2021-07-19",
+    "2021-07-26",
+    "2021-08-02",
+    "2021-08-09"
+  ],
+  "variants": [
+    "auto",
+    "full",
+    "random",
+    "source",
+    "source_raw"
+  ]
+}

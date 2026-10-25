@@ -1,0 +1,244 @@
+{
+  "all_refit_receipts_precede_test_feature_receipt": true,
+  "cached_replay_command": ".venv/bin/python -m kion_autofeatures test",
+  "cached_replay_files_checked": 8,
+  "cached_replay_models_and_receipts_unchanged": true,
+  "comparability": {
+    "evaluation_pairs": 2284830,
+    "evaluation_users": 11425,
+    "frozen_seal": "8aa5502a0eba5ec202350035db8243174d70c3f845901c27f37821c0a7c5e956",
+    "identical_candidate_recall": true,
+    "identical_ordered_pairs": true,
+    "identical_users_and_targets": true,
+    "original_full_baseline_per_user_reproduced": true,
+    "refits": {
+      "auto": {
+        "early_stopping": false,
+        "features": 44,
+        "model_sha256": "f0249071236b5d4c388d17db411c5c125edb08514a1a024ade68eb5e325b3a33",
+        "parameters": {
+          "depth": 8,
+          "iterations": 299,
+          "l2_leaf_reg": 3,
+          "learning_rate": 0.05,
+          "loss_function": "YetiRank",
+          "max_ctr_complexity": 1,
+          "random_seed": 42,
+          "thread_count": 2
+        },
+        "queries": 14704,
+        "rows": 2940779,
+        "test_labels_used": false
+      },
+      "random": {
+        "early_stopping": false,
+        "features": 44,
+        "model_sha256": "6578067a0808f10cdc041621c0f523c822b3db9c8b118daebd91d5d1e30eb69f",
+        "parameters": {
+          "depth": 8,
+          "iterations": 299,
+          "l2_leaf_reg": 3,
+          "learning_rate": 0.05,
+          "loss_function": "YetiRank",
+          "max_ctr_complexity": 1,
+          "random_seed": 42,
+          "thread_count": 2
+        },
+        "queries": 14704,
+        "rows": 2940779,
+        "test_labels_used": false
+      },
+      "source": {
+        "early_stopping": false,
+        "features": 13,
+        "model_sha256": "9f9bdcab9a985595ccaa6afc73864af674a8d2367916efcb5e35a1c2394011f0",
+        "parameters": {
+          "depth": 8,
+          "iterations": 299,
+          "l2_leaf_reg": 3,
+          "learning_rate": 0.05,
+          "loss_function": "YetiRank",
+          "max_ctr_complexity": 1,
+          "random_seed": 42,
+          "thread_count": 2
+        },
+        "queries": 14704,
+        "rows": 2940779,
+        "test_labels_used": false
+      },
+      "source_raw": {
+        "early_stopping": false,
+        "features": 28,
+        "model_sha256": "3e8e114a515008713ae842240578a7ca8dd5d184a975b67b65165832c29cd74e",
+        "parameters": {
+          "depth": 8,
+          "iterations": 299,
+          "l2_leaf_reg": 3,
+          "learning_rate": 0.05,
+          "loss_function": "YetiRank",
+          "max_ctr_complexity": 1,
+          "random_seed": 42,
+          "thread_count": 2
+        },
+        "queries": 14704,
+        "rows": 2940779,
+        "test_labels_used": false
+      }
+    },
+    "retrieval_zero_hit_users": 3123,
+    "test_cutoff": "2021-08-16",
+    "test_evaluated": true,
+    "training_cutoffs": [
+      "2021-07-19",
+      "2021-07-26",
+      "2021-08-02",
+      "2021-08-09"
+    ],
+    "variants": [
+      "auto",
+      "full",
+      "random",
+      "source",
+      "source_raw"
+    ]
+  },
+  "created_at_utc": "2026-10-25T10:23:50.283633+00:00",
+  "execution_base_commit": "449e0cf7dcf87db2b3b70f90129cc337cdd2d186",
+  "files": {
+    "TEST.md": "38a798891ff31fb087b177e6da6533290e5b23ab6df5498dba026795ed1c86ac",
+    "test.json": "b04a80dd8bacaf25f2da6633efd6c9c8ebde3582a55d84e4353397732a1cfe4c",
+    "test_comparability.json": "d4fb96252b49de88231614922b3ab20f3e06cf63870033bf4ad6adcd3bc4b317",
+    "test_intervals.json": "9672168dde20b1e014a6c7f31033053cf0586dc9b5b90c13ce4e61ea0b5708b2",
+    "test_pre_evaluation_checkpoint.json": "54ea51c06543181eeb9533e0a119fe44719145e9a3607646b1290b761c0b0db5",
+    "test_results.csv": "5e8683bf054422e88710730db6d1fdb75d0dd4989527dc74f61f8a0572829f23",
+    "test_segments.csv": "84f984cf3e109ceda579af79cb1ed16eb407d46e83695cf9dda903d2ff6984f5"
+  },
+  "frozen_seal": "8aa5502a0eba5ec202350035db8243174d70c3f845901c27f37821c0a7c5e956",
+  "method_changed_after_test": false,
+  "model_schemas_and_tree_counts_verified": true,
+  "models": {
+    "auto": {
+      "categorical_features": [
+        "u_age",
+        "u_income",
+        "u_sex",
+        "u_kids_flg",
+        "i_content_type",
+        "i_countries",
+        "i_directors",
+        "i_genres",
+        "i_id"
+      ],
+      "features": 44,
+      "sha256": "f0249071236b5d4c388d17db411c5c125edb08514a1a024ade68eb5e325b3a33",
+      "trees": 299
+    },
+    "full": {
+      "categorical_features": [
+        "u_age",
+        "u_income",
+        "u_sex",
+        "u_kids_flg",
+        "i_content_type",
+        "i_countries",
+        "i_directors",
+        "i_genres",
+        "i_id"
+      ],
+      "features": 82,
+      "sha256": "3ab83aaba1472ba6f2e8aaffc11e8dbe35be88e8f14a2016b981c742873e5d5c",
+      "trees": 299
+    },
+    "random": {
+      "categorical_features": [
+        "u_age",
+        "u_income",
+        "u_sex",
+        "u_kids_flg",
+        "i_content_type",
+        "i_countries",
+        "i_directors",
+        "i_genres",
+        "i_id"
+      ],
+      "features": 44,
+      "sha256": "6578067a0808f10cdc041621c0f523c822b3db9c8b118daebd91d5d1e30eb69f",
+      "trees": 299
+    },
+    "source": {
+      "categorical_features": [],
+      "features": 13,
+      "sha256": "9f9bdcab9a985595ccaa6afc73864af674a8d2367916efcb5e35a1c2394011f0",
+      "trees": 299
+    },
+    "source_raw": {
+      "categorical_features": [
+        "u_age",
+        "u_income",
+        "u_sex",
+        "u_kids_flg",
+        "i_content_type",
+        "i_countries",
+        "i_directors",
+        "i_genres",
+        "i_id"
+      ],
+      "features": 28,
+      "sha256": "3e8e114a515008713ae842240578a7ca8dd5d184a975b67b65165832c29cd74e",
+      "trees": 299
+    }
+  },
+  "pre_evaluation_checkpoint_models_unchanged": true,
+  "previous_tracked_files_verified_unchanged": 80,
+  "protected_baseline_files_verified_unchanged": 65,
+  "refit_receipt_mtime_ns": {
+    "auto": 1792922415338975564,
+    "random": 1792923461226197378,
+    "source": 1792920397933643385,
+    "source_raw": 1792921367969951870
+  },
+  "reload_prediction_atol": 1e-10,
+  "reload_verification_command": ".venv/bin/python -m kion_autofeatures verify",
+  "report_builder_sha256": "e71dd5d32839293530eebf2ed96d8133818eeb31ba072f8a46072ce7707b6706",
+  "resources": {
+    "cached_test": {
+      "command": "test",
+      "log": "artifacts/autofeatures/main/resources/test_20261025T101917953736.log",
+      "memory_limit_exceeded": false,
+      "peak_tree_rss_mb": 132.671875,
+      "returncode": 0,
+      "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+      "seconds": 1.0284664999926463,
+      "threads": 2
+    },
+    "test": {
+      "command": "test",
+      "log": "artifacts/autofeatures/main/resources/test_20261025T090743025973.log",
+      "memory_limit_exceeded": false,
+      "peak_tree_rss_mb": 3810.375,
+      "returncode": 0,
+      "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+      "seconds": 3637.665378374979,
+      "threads": 2
+    },
+    "verify": {
+      "command": "verify",
+      "log": "artifacts/autofeatures/main/resources/verify_20261025T101838186410.log",
+      "memory_limit_exceeded": false,
+      "peak_tree_rss_mb": 3438.03125,
+      "returncode": 0,
+      "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+      "seconds": 39.72034150001127,
+      "threads": 2
+    }
+  },
+  "rss_note": "Stage RSS is worker plus descendants; per-model memory is not independently isolated",
+  "scope": "Commit25: frozen refits and final evaluation, no test-driven tuning",
+  "test_evaluated": true,
+  "test_feature_receipt_mtime_ns": 1792923478007534594,
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q",
+    "passed": 37,
+    "seconds": 15.09
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "completed_refit_count": 3,
+  "completed_refits": [
+    "auto",
+    "source",
+    "source_raw"
+  ],
+  "created_at_utc": "2026-10-25T10:02:40.680497+00:00",
+  "frozen_seal": "8aa5502a0eba5ec202350035db8243174d70c3f845901c27f37821c0a7c5e956",
+  "model_sha256": {
+    "auto": "f0249071236b5d4c388d17db411c5c125edb08514a1a024ade68eb5e325b3a33",
+    "source": "9f9bdcab9a985595ccaa6afc73864af674a8d2367916efcb5e35a1c2394011f0",
+    "source_raw": "3e8e114a515008713ae842240578a7ca8dd5d184a975b67b65165832c29cd74e"
+  },
+  "new_test_feature_cache_absent": true,
+  "new_test_prediction_files_absent": true,
+  "new_test_result_manifest_absent": true,
+  "pending_refit": "random",
+  "scope": "Observed during the fourth fixed refit, before new held-out scoring",
+  "test_evaluated": false
+}
