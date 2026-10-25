@@ -1,0 +1,104 @@
+{
+  "all_new_model_roundtrips_verified": true,
+  "baseline_unchanged": true,
+  "comparability": {
+    "evaluation_pairs": 2170393,
+    "evaluation_users": 10852,
+    "identical_candidate_recall": true,
+    "identical_evaluation_users_and_targets": true,
+    "identical_ordered_pairs": true,
+    "test_evaluated": false,
+    "training_queries_per_new_variant": 11120,
+    "training_rows_per_new_variant": 2223979,
+    "variants": [
+      "auto",
+      "auto_no_source",
+      "full",
+      "manual",
+      "random",
+      "source",
+      "source_raw"
+    ]
+  },
+  "created_at_utc": "2026-10-25T08:30:32.607595+00:00",
+  "feature_counts": {
+    "auto": 44,
+    "auto_no_source": 31,
+    "full": 82,
+    "manual": 69,
+    "random": 44,
+    "source": 13,
+    "source_raw": 28
+  },
+  "files": {
+    "VALIDATION.md": "5dddb609cc13514545badeaee078abcdc51959572841e4ed7bfa5b730260a654",
+    "comparability.json": "2abd58aa18975982b86b230f5255d4279e5843dd13b5ac1a0428349e65334a68",
+    "frozen.json": "f81f3dbb29c6f8c975ce650388a5b04e55a65a8f8adae5400300eba54e4d39c8",
+    "real_feature_semantics.json": "e5af99697c276eadb71001d09da60e158cb158a81659f750eb3c92fdc077e95c",
+    "selected_features.csv": "7676715fa5ef8681222d8d8d044b1f5bfc144e97facb7e537d42ca112f54c016",
+    "selection_summary.json": "2724d5bed69bec33b771d7b7658494b64a6c0ded86a0b33d430d00730f077daf",
+    "validation_feature_importance.csv": "44f19a7c69459ed0323b7f654c1db392256e46a43a39375241e4f7072c9ed623",
+    "validation_intervals.json": "a318af11b6aa2f97a043cce75de1d7a8458a7b19280e383f5a05486a09effd41",
+    "validation_results.csv": "dd0493b19b9952ff01e08fb071ebc54174d23549bf942c7a97fba4e6bc45ae25"
+  },
+  "frozen_seal": "8aa5502a0eba5ec202350035db8243174d70c3f845901c27f37821c0a7c5e956",
+  "main_test_artifacts_absent": true,
+  "max_monitored_stage_tree_rss_mib": 3636.921875,
+  "prediction_reload_atol": 1e-10,
+  "protected_baseline_files_verified": 65,
+  "report_builder_sha256": "73decda7eb4327abdc469a50077ebd6a4af314bf8b238067bee41e8ebdfe3168",
+  "resources": {
+    "freeze": {
+      "command": "freeze",
+      "log": "artifacts/autofeatures/main/resources/freeze_20261025T082614349088.log",
+      "memory_limit_exceeded": false,
+      "peak_tree_rss_mb": 132.21875,
+      "returncode": 0,
+      "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+      "seconds": 1.0956544579821639,
+      "threads": 2
+    },
+    "search": {
+      "command": "search",
+      "log": "artifacts/autofeatures/main/resources/search_20261025T072121640507.log",
+      "memory_limit_exceeded": false,
+      "peak_tree_rss_mb": 3288.625,
+      "returncode": 0,
+      "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+      "seconds": 576.4205784169608,
+      "threads": 2
+    },
+    "validate": {
+      "command": "validate",
+      "log": "artifacts/autofeatures/main/resources/validate_20261025T073142733948.log",
+      "memory_limit_exceeded": false,
+      "peak_tree_rss_mb": 3636.921875,
+      "returncode": 0,
+      "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+      "seconds": 3209.147729334014,
+      "threads": 2
+    },
+    "verify": {
+      "command": "verify",
+      "log": "artifacts/autofeatures/main/resources/verify_20261025T082615489852.log",
+      "memory_limit_exceeded": false,
+      "peak_tree_rss_mb": 3438.0,
+      "returncode": 0,
+      "rss_accounting": "sum of worker and descendants; shared pages may be counted more than once",
+      "seconds": 23.38538291695295,
+      "threads": 2
+    }
+  },
+  "rss_note": "Per-model intervals share a stage process and allocator state; not independent model memory benchmarks",
+  "scope": "Commits 23-24: real-data pilot, inner search, outer validation and frozen method; main test deferred",
+  "search_and_validation_seconds": 3785.568307750975,
+  "selected_automatic_features": 16,
+  "source_commit_before_result_commit": "34a0fea3506b5dc0cbda184205d5dcf2d4a9aee9",
+  "test_evaluated": false,
+  "tests": {
+    "command": ".venv/bin/python -m pytest -q",
+    "passed": 37,
+    "seconds": 15.22
+  },
+  "validation_reload_command": ".venv/bin/python -m kion_autofeatures verify"
+}

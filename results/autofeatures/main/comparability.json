@@ -1,0 +1,19 @@
+{
+  "evaluation_pairs": 2170393,
+  "evaluation_users": 10852,
+  "identical_candidate_recall": true,
+  "identical_evaluation_users_and_targets": true,
+  "identical_ordered_pairs": true,
+  "test_evaluated": false,
+  "training_queries_per_new_variant": 11120,
+  "training_rows_per_new_variant": 2223979,
+  "variants": [
+    "auto",
+    "auto_no_source",
+    "full",
+    "manual",
+    "random",
+    "source",
+    "source_raw"
+  ]
+}

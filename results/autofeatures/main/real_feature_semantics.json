@@ -1,0 +1,11 @@
+{
+  "atol": 1e-07,
+  "baseline_equivalent": "pair_genre_share_30",
+  "cutoff": "2021-08-09",
+  "feature": "auto__user_genres__share__30",
+  "max_abs_difference": 5.960464477539063e-08,
+  "ordered_pairs_identical": true,
+  "pairs_checked": 10000,
+  "rtol": 1e-05,
+  "test_evaluated": false
+}

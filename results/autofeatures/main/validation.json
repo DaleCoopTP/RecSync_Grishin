@@ -1,0 +1,1923 @@
+{
+  "files": {
+    "../../../artifacts/autofeatures/main/datasets/validation/2021-07-19_train.json": "455bd96e1645bb55412a44436c89aaf75ed3217e33cfc0cc9a7ce83501c6bb9f",
+    "../../../artifacts/autofeatures/main/datasets/validation/2021-07-19_train.parquet": "41e76da49e32767cc82261810981d646988b4144376ff57f766d681d38994df5",
+    "../../../artifacts/autofeatures/main/datasets/validation/2021-07-26_train.json": "457425f140980dc6e32c094b9ada2494228eeeba8eaa8e7c984bd7412c6e8c97",
+    "../../../artifacts/autofeatures/main/datasets/validation/2021-07-26_train.parquet": "cca23ba9d9b754e8169d9f67278a0ee1d0d77077d1b74f820794af369c388cc8",
+    "../../../artifacts/autofeatures/main/datasets/validation/2021-08-02_train.json": "6e71d6c722d4835bf89b6161c0350f2483f76411e1a2c90660bb34b4113a10a9",
+    "../../../artifacts/autofeatures/main/datasets/validation/2021-08-02_train.parquet": "28f7b8dc66541e02515cd92076e978f615bbc7cbc7a556af863888e214fa422e",
+    "../../../artifacts/autofeatures/main/datasets/validation/2021-08-09_evaluation.json": "5b9336c9bebeac905c7cbf8eee40072c8b024366fa1b998206d8419b07442fa1",
+    "../../../artifacts/autofeatures/main/datasets/validation/2021-08-09_evaluation.parquet": "f5cab2615f9f4ad8654478964dec499cf0608f17e58417cf6dfc6fd5f558c1ad",
+    "../../../artifacts/autofeatures/main/validation/auto/fit.json": "ef21302e2a24e68599f32262b42b3c8fa8bb65dd994c32d0af1749d89f6c9ac6",
+    "../../../artifacts/autofeatures/main/validation/auto/importance.csv": "e21daae3ce988934a1d63993c31388d1382850848f475779c2592198c90355d6",
+    "../../../artifacts/autofeatures/main/validation/auto/model.cbm": "7cbc20fd125a67ebb75c61a287d6d9da9aabb480437cfc3a80a14cfa2b8a4bf9",
+    "../../../artifacts/autofeatures/main/validation/auto/per_user.parquet": "93e7913f5a548c0ccc3ef76f2a82d885d55f20fa836ff40930954c7521a0fbe6",
+    "../../../artifacts/autofeatures/main/validation/auto/predictions.parquet": "5656f012e982cf42a804b6346f23045f0ff7d33abd9f2c1833150d06430d8bb4",
+    "../../../artifacts/autofeatures/main/validation/auto_no_source/fit.json": "d90e0d7472c27e0383781abe97c677a18700c940638eb1b65b2326fec46bc288",
+    "../../../artifacts/autofeatures/main/validation/auto_no_source/importance.csv": "3c110420f99a89f63983c40131cec88b4c6f9990ab045402c13a731951c5d0e4",
+    "../../../artifacts/autofeatures/main/validation/auto_no_source/model.cbm": "5f2945b9852552b801942358c3be79b7f98bac4a894d3a054211cd5012b8d2d6",
+    "../../../artifacts/autofeatures/main/validation/auto_no_source/per_user.parquet": "73ab97f7f8d1196fae4e4feb37ed7cd8ee55a219950a0088198dbb92a77e9577",
+    "../../../artifacts/autofeatures/main/validation/auto_no_source/predictions.parquet": "93b71660129e519891979945fb7e093387ada8ff493756901b0fe35c1a718433",
+    "../../../artifacts/autofeatures/main/validation/full/per_user.parquet": "c194b6d0f0973136318ddb38ede41518414060fc491c9d1572b84f85c5298ef7",
+    "../../../artifacts/autofeatures/main/validation/full/predictions.parquet": "459df17ebcb3bc0c9e49275973f912f37187ec4f166926499145b0b738089736",
+    "../../../artifacts/autofeatures/main/validation/full/reference.json": "978d94d7502639517e0ca5a6996bd027b1352978744717ce34031165aa92c422",
+    "../../../artifacts/autofeatures/main/validation/manual/per_user.parquet": "84a961daf1b6c8ddc25fe29d58c77317ded5d05befba49760675959fb82c8a06",
+    "../../../artifacts/autofeatures/main/validation/manual/predictions.parquet": "eb64c6f3a33c7a28945bf9ffb59d4b9b8393d4a3b8f6277d3cc8b888eb4cf1fd",
+    "../../../artifacts/autofeatures/main/validation/manual/reference.json": "4249a2df6ace4e24280c29ee5010caa34b8ceaf7816461abeae628244b3f5da1",
+    "../../../artifacts/autofeatures/main/validation/random/fit.json": "6fa33a8f74e8e774502647cfea665a84d58c2c530f097bef9bae3374ff81b891",
+    "../../../artifacts/autofeatures/main/validation/random/importance.csv": "ca83eafff3388f476ff309d5166ba558291e30fbb4290ad052dbb4bc283052b3",
+    "../../../artifacts/autofeatures/main/validation/random/model.cbm": "ebeef4e788f7aea4a7892451a8bd83f4b55097fba6521837627561609a846b7a",
+    "../../../artifacts/autofeatures/main/validation/random/per_user.parquet": "b83dea3df31c1dd9904c185af73afef61b2fa34c47a8f8addbe4a3920e9320ad",
+    "../../../artifacts/autofeatures/main/validation/random/predictions.parquet": "13116e99db28f720a0be3a029b990cad7e67cc8ff21e7253381f8b3a0f496179",
+    "../../../artifacts/autofeatures/main/validation/source/per_user.parquet": "546df5c90c0e0754aa76ad9c1280c2797b54c44139c4ac656752277b159b9376",
+    "../../../artifacts/autofeatures/main/validation/source/predictions.parquet": "f5233a6583b987c4032e4403799ae184441ddc3c38f3104f55d39aa6ac4f4cb0",
+    "../../../artifacts/autofeatures/main/validation/source/reference.json": "5c23d6dc730c8b3b1d4b98d99d27636ef6f196226aa8e06801f258934ca51181",
+    "../../../artifacts/autofeatures/main/validation/source_raw/fit.json": "0160411ba0dc4dfdd7356e91080075e95231ff13062f61bec25e54ebfae78dd5",
+    "../../../artifacts/autofeatures/main/validation/source_raw/importance.csv": "0a964960ffe8490de5c7acfadd267883b2a9781d8d7d619615f99b2650dfc41f",
+    "../../../artifacts/autofeatures/main/validation/source_raw/model.cbm": "17757c7f9b25da6cc92918c77f0e006527a2b5c2896a3e220f89f3e404e8f4b1",
+    "../../../artifacts/autofeatures/main/validation/source_raw/per_user.parquet": "3ed64ab2e7f383efd69c5333ba36e641cfec188b74866b2a1c96dbbc827e7921",
+    "../../../artifacts/autofeatures/main/validation/source_raw/predictions.parquet": "1e09a6605052ecc8287311b2ec22f64693bc69586ae1ea405e6d38f782b14d80",
+    "validation_intervals.json": "a318af11b6aa2f97a043cce75de1d7a8458a7b19280e383f5a05486a09effd41",
+    "validation_results.csv": "dd0493b19b9952ff01e08fb071ebc54174d23549bf942c7a97fba4e6bc45ae25"
+  },
+  "generation": [
+    {
+      "cache": {
+        "bytes": 19649863,
+        "files": {
+          "2021-07-19_train.parquet": "41e76da49e32767cc82261810981d646988b4144376ff57f766d681d38994df5"
+        },
+        "identity": {
+          "features": [
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 60
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_age",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_age",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_income",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_kids_flg",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_kids_flg",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_kids_flg",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_sex",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "item_sex",
+              "window": 90
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_log_dur",
+              "path": "item_sex",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_sex",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_sex",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "user",
+              "window": 30
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_content_type",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_content_type",
+              "window": 30
+            },
+            {
+              "long_window": 14,
+              "operation": "trend",
+              "path": "user_content_type",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "user_countries",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_log_dur",
+              "path": "user_countries",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_countries",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_countries",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_countries",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_countries",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_directors",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_genres",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_genres",
+              "window": 30
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_genres",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_genres",
+              "window": 30
+            }
+          ],
+          "history": {
+            "cutoff": "2021-07-19",
+            "history": "ac0fa741851cedfa858f9af098a8b9a08509bca8c924e7e78993c3b230d972ff",
+            "items": "286163fc4b3695d1d7cf9716fee4a424a89b4425926dc1e9614534afb70d4dfb",
+            "users": "22d3ede331324eca5e3d0a8ea91919d44c906ab78e937da9dd0e7a3a2039c85d"
+          },
+          "pairs": "d4f6cd9947fc377e609b13731e24a9aa5d728b4ecc8a3679aad824b2185c7b9a",
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "rows": 752400,
+        "seconds": 5.401160000008531
+      },
+      "cutoff": "2021-07-19",
+      "process_peak_rss_mb": 659.875,
+      "request_seconds": 5.5561629589647055,
+      "training": true
+    },
+    {
+      "cache": {
+        "bytes": 19118256,
+        "files": {
+          "2021-07-26_train.parquet": "cca23ba9d9b754e8169d9f67278a0ee1d0d77077d1b74f820794af369c388cc8"
+        },
+        "identity": {
+          "features": [
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 60
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_age",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_age",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_income",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_kids_flg",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_kids_flg",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_kids_flg",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_sex",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "item_sex",
+              "window": 90
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_log_dur",
+              "path": "item_sex",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_sex",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_sex",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "user",
+              "window": 30
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_content_type",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_content_type",
+              "window": 30
+            },
+            {
+              "long_window": 14,
+              "operation": "trend",
+              "path": "user_content_type",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "user_countries",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_log_dur",
+              "path": "user_countries",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_countries",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_countries",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_countries",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_countries",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_directors",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_genres",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_genres",
+              "window": 30
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_genres",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_genres",
+              "window": 30
+            }
+          ],
+          "history": {
+            "cutoff": "2021-07-26",
+            "history": "f8920f9258644658e1851b4234ef910f8e4c86613e9679cbe4851b333453ccc8",
+            "items": "4cd6b2ce910c340d7b8b88c0f39fad5b8bda8d2525ee33cdaae953fa92455a1c",
+            "users": "cdad9ac9f7d468239a123ced30a817e4b123c62a8f84e3b711ce648e0965bd79"
+          },
+          "pairs": "a3ae58df27879737306023ce9bb98efa77ccab75efd9d46ede62c3b587e11db9",
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "rows": 733387,
+        "seconds": 5.37460637500044
+      },
+      "cutoff": "2021-07-26",
+      "process_peak_rss_mb": 839.0,
+      "request_seconds": 5.542867957963608,
+      "training": true
+    },
+    {
+      "cache": {
+        "bytes": 19164077,
+        "files": {
+          "2021-08-02_train.parquet": "28f7b8dc66541e02515cd92076e978f615bbc7cbc7a556af863888e214fa422e"
+        },
+        "identity": {
+          "features": [
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 60
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_age",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_age",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_income",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_kids_flg",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_kids_flg",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_kids_flg",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_sex",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "item_sex",
+              "window": 90
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_log_dur",
+              "path": "item_sex",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_sex",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_sex",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "user",
+              "window": 30
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_content_type",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_content_type",
+              "window": 30
+            },
+            {
+              "long_window": 14,
+              "operation": "trend",
+              "path": "user_content_type",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "user_countries",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_log_dur",
+              "path": "user_countries",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_countries",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_countries",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_countries",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_countries",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_directors",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_genres",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_genres",
+              "window": 30
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_genres",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_genres",
+              "window": 30
+            }
+          ],
+          "history": {
+            "cutoff": "2021-08-02",
+            "history": "6032dd2616be655442a8ef72e4366d50131c463ade60280e6ea2d3ac2eef3f99",
+            "items": "90548b2349f654f1550b234094843faae1668d19c6fbe329a755087a6e021c2d",
+            "users": "80f4c87153960aca59403a6865db836d874f269d824be4d513d7cc79084067a4"
+          },
+          "pairs": "f5e40b9de4676598bac831f971b609138a64e6652e613b296b90fc9280fc2264",
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "rows": 738192,
+        "seconds": 5.423479875025805
+      },
+      "cutoff": "2021-08-02",
+      "process_peak_rss_mb": 1030.96875,
+      "request_seconds": 5.605516582960263,
+      "training": true
+    },
+    {
+      "cache": {
+        "bytes": 56640477,
+        "files": {
+          "2021-08-09_evaluation.parquet": "f5cab2615f9f4ad8654478964dec499cf0608f17e58417cf6dfc6fd5f558c1ad"
+        },
+        "identity": {
+          "features": [
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_age",
+              "window": 60
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_age",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_age",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_income",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_kids_flg",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_kids_flg",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_kids_flg",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "count",
+              "path": "item_sex",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "item_sex",
+              "window": 90
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_log_dur",
+              "path": "item_sex",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "item_sex",
+              "window": 3
+            },
+            {
+              "long_window": 60,
+              "operation": "trend",
+              "path": "item_sex",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "user",
+              "window": 30
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_content_type",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_content_type",
+              "window": 30
+            },
+            {
+              "long_window": 14,
+              "operation": "trend",
+              "path": "user_content_type",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "max_pct",
+              "path": "user_countries",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_log_dur",
+              "path": "user_countries",
+              "window": 7
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_countries",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_countries",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_countries",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_countries",
+              "window": 0
+            },
+            {
+              "long_window": 0,
+              "operation": "mean_pct",
+              "path": "user_directors",
+              "window": 10
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_genres",
+              "window": 3
+            },
+            {
+              "long_window": 0,
+              "operation": "share",
+              "path": "user_genres",
+              "window": 30
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_genres",
+              "window": 14
+            },
+            {
+              "long_window": 0,
+              "operation": "sum_log_dur",
+              "path": "user_genres",
+              "window": 30
+            }
+          ],
+          "history": {
+            "cutoff": "2021-08-09",
+            "history": "233a77174b1c6101baf2cd58afb0335436218bb5e6ab61ac1173af8aec894ce5",
+            "items": "e3b35933894cfe4377d0745e521d47e83c77e1d54965368f007100a46c420723",
+            "users": "a3596c24fd2c21999a59a51c6f79f1af29dd19677cfbda1f277fb9d0c14838c4"
+          },
+          "pairs": "9a67394762e540762c5d0a319f064eb15c15b3851ad801ffd6b33e240e7cd554",
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "rows": 2170393,
+        "seconds": 14.642764791031368
+      },
+      "cutoff": "2021-08-09",
+      "process_peak_rss_mb": 1259.453125,
+      "request_seconds": 14.854941500001587,
+      "training": false
+    }
+  ],
+  "identity": {
+    "inputs": "1778edf2ef52cc3b4f166a6076ebb0b185ab7b255f313ee4a6a571c1013060f0",
+    "research": {
+      "baseline_config": "config.toml",
+      "batch_rows": 20000,
+      "inner_users": 1000,
+      "max_features": 64,
+      "memory_limit_gib": 6.0,
+      "prediction_repeats": 3,
+      "prefix_sizes": [
+        16,
+        32,
+        64
+      ],
+      "run_name": "main",
+      "screen_depth": 6,
+      "screen_iterations": 120,
+      "threads": 2,
+      "tie_tolerance": 0.0001
+    },
+    "sources": {
+      "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+      "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+      "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+      "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+      "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+      "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+      "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+      "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+      "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+      "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+      "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+      "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+    }
+  },
+  "models": {
+    "auto": {
+      "early_stopping": false,
+      "evaluation_rows": 2170393,
+      "files": {
+        "importance.csv": "e21daae3ce988934a1d63993c31388d1382850848f475779c2592198c90355d6",
+        "model.cbm": "7cbc20fd125a67ebb75c61a287d6d9da9aabb480437cfc3a80a14cfa2b8a4bf9",
+        "per_user.parquet": "93e7913f5a548c0ccc3ef76f2a82d885d55f20fa836ff40930954c7521a0fbe6",
+        "predictions.parquet": "5656f012e982cf42a804b6346f23045f0ff7d33abd9f2c1833150d06430d8bb4"
+      },
+      "fit_seconds": 793.795883334009,
+      "identity": {
+        "categorical": [
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id"
+        ],
+        "columns": [
+          "rrf_score",
+          "cand_pop_score",
+          "cand_pop_rank",
+          "cand_pop_present",
+          "cand_recent_score",
+          "cand_recent_rank",
+          "cand_recent_present",
+          "cand_knn_score",
+          "cand_knn_rank",
+          "cand_knn_present",
+          "cand_genre_score",
+          "cand_genre_rank",
+          "cand_genre_present",
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id",
+          "i_release_year",
+          "i_release_year_missing",
+          "i_for_kids",
+          "i_for_kids_missing",
+          "i_age_rating",
+          "i_age_rating_missing",
+          "auto__item__trend__10_60",
+          "auto__item__sum_log_dur__3",
+          "auto__item__count__3",
+          "auto__item_sex__sum_log_dur__3",
+          "auto__item_kids_flg__trend__10_60",
+          "auto__item_sex__count__3",
+          "auto__item_age__trend__10_60",
+          "auto__user_content_type__sum_log_dur__30",
+          "auto__item_kids_flg__sum_log_dur__3",
+          "auto__user_genres__sum_log_dur__30",
+          "auto__user_genres__share__30",
+          "auto__user_countries__sum_log_dur__14",
+          "auto__item_age__sum_log_dur__3",
+          "auto__user_genres__sum_log_dur__14",
+          "auto__item_kids_flg__count__all",
+          "auto__item_sex__trend__10_60"
+        ],
+        "context": {
+          "inputs": "1778edf2ef52cc3b4f166a6076ebb0b185ab7b255f313ee4a6a571c1013060f0",
+          "research": {
+            "baseline_config": "config.toml",
+            "batch_rows": 20000,
+            "inner_users": 1000,
+            "max_features": 64,
+            "memory_limit_gib": 6.0,
+            "prediction_repeats": 3,
+            "prefix_sizes": [
+              16,
+              32,
+              64
+            ],
+            "run_name": "main",
+            "screen_depth": 6,
+            "screen_iterations": 120,
+            "threads": 2,
+            "tie_tolerance": 0.0001
+          },
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "evaluation": "7cd09e8e775bc66b1b6be4348705516d8c049f7c7c70c4bc624434cfc2ba39e2",
+        "parameters": {
+          "depth": 8,
+          "iterations": 299,
+          "l2_leaf_reg": 3,
+          "learning_rate": 0.05,
+          "loss_function": "YetiRank",
+          "max_ctr_complexity": 1,
+          "random_seed": 42,
+          "thread_count": 2
+        },
+        "repeats": 3,
+        "targets": "2fdfb1d4337f21cd4549bf35e08bc534d22f0b5b67eb7c2cb2d04fa2b52df232",
+        "train": "89e42f2bd585ed288546ef465326357dba326678d4b9f098ed150f60cb7f8291"
+      },
+      "metrics": {
+        "candidate_recall@200": 0.539750844210885,
+        "map@10": 0.1070283302823662,
+        "ndcg@10": 0.15357913722483693,
+        "recall@10": 0.22455996665149644,
+        "users": 10852
+      },
+      "model_bytes": 1318792,
+      "pool_seconds": 2.246434250031598,
+      "predict_seconds": [
+        0.5225521249813028,
+        0.5677619169582613,
+        0.5922652080189437
+      ],
+      "predict_seconds_median": 0.5677619169582613,
+      "process_peak_rss_mb": 2796.21875,
+      "reload_verified": true,
+      "train_queries": 11120,
+      "train_rows": 2223979,
+      "validation_pool_seconds": 2.1269337920239195
+    },
+    "auto_no_source": {
+      "early_stopping": false,
+      "evaluation_rows": 2170393,
+      "files": {
+        "importance.csv": "3c110420f99a89f63983c40131cec88b4c6f9990ab045402c13a731951c5d0e4",
+        "model.cbm": "5f2945b9852552b801942358c3be79b7f98bac4a894d3a054211cd5012b8d2d6",
+        "per_user.parquet": "73ab97f7f8d1196fae4e4feb37ed7cd8ee55a219950a0088198dbb92a77e9577",
+        "predictions.parquet": "93b71660129e519891979945fb7e093387ada8ff493756901b0fe35c1a718433"
+      },
+      "fit_seconds": 761.1543390419683,
+      "identity": {
+        "categorical": [
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id"
+        ],
+        "columns": [
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id",
+          "i_release_year",
+          "i_release_year_missing",
+          "i_for_kids",
+          "i_for_kids_missing",
+          "i_age_rating",
+          "i_age_rating_missing",
+          "auto__item__trend__10_60",
+          "auto__item__sum_log_dur__3",
+          "auto__item__count__3",
+          "auto__item_sex__sum_log_dur__3",
+          "auto__item_kids_flg__trend__10_60",
+          "auto__item_sex__count__3",
+          "auto__item_age__trend__10_60",
+          "auto__user_content_type__sum_log_dur__30",
+          "auto__item_kids_flg__sum_log_dur__3",
+          "auto__user_genres__sum_log_dur__30",
+          "auto__user_genres__share__30",
+          "auto__user_countries__sum_log_dur__14",
+          "auto__item_age__sum_log_dur__3",
+          "auto__user_genres__sum_log_dur__14",
+          "auto__item_kids_flg__count__all",
+          "auto__item_sex__trend__10_60"
+        ],
+        "context": {
+          "inputs": "1778edf2ef52cc3b4f166a6076ebb0b185ab7b255f313ee4a6a571c1013060f0",
+          "research": {
+            "baseline_config": "config.toml",
+            "batch_rows": 20000,
+            "inner_users": 1000,
+            "max_features": 64,
+            "memory_limit_gib": 6.0,
+            "prediction_repeats": 3,
+            "prefix_sizes": [
+              16,
+              32,
+              64
+            ],
+            "run_name": "main",
+            "screen_depth": 6,
+            "screen_iterations": 120,
+            "threads": 2,
+            "tie_tolerance": 0.0001
+          },
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "evaluation": "e4e39940e884d8a0e98cd88bba32c40a08022af7d704862d26967352998ff62f",
+        "parameters": {
+          "depth": 8,
+          "iterations": 299,
+          "l2_leaf_reg": 3,
+          "learning_rate": 0.05,
+          "loss_function": "YetiRank",
+          "max_ctr_complexity": 1,
+          "random_seed": 42,
+          "thread_count": 2
+        },
+        "repeats": 3,
+        "targets": "2fdfb1d4337f21cd4549bf35e08bc534d22f0b5b67eb7c2cb2d04fa2b52df232",
+        "train": "35d1776b4a489464f6e0b3deee99f1ec35fb0abecb66d04c146091a8c6f56c68"
+      },
+      "metrics": {
+        "candidate_recall@200": 0.539750844210885,
+        "map@10": 0.09757589843796796,
+        "ndcg@10": 0.14086860639476867,
+        "recall@10": 0.21023150188483547,
+        "users": 10852
+      },
+      "model_bytes": 1317832,
+      "pool_seconds": 2.024961000017356,
+      "predict_seconds": [
+        0.48031566699501127,
+        0.5208427080069669,
+        0.5364197089802474
+      ],
+      "predict_seconds_median": 0.5208427080069669,
+      "process_peak_rss_mb": 3664.640625,
+      "reload_verified": true,
+      "train_queries": 11120,
+      "train_rows": 2223979,
+      "validation_pool_seconds": 2.0466335830278695
+    },
+    "full": {
+      "files": {
+        "per_user.parquet": "c194b6d0f0973136318ddb38ede41518414060fc491c9d1572b84f85c5298ef7",
+        "predictions.parquet": "459df17ebcb3bc0c9e49275973f912f37187ec4f166926499145b0b738089736"
+      },
+      "fit_seconds": null,
+      "identity": {
+        "columns": [
+          "rrf_score",
+          "cand_pop_score",
+          "cand_pop_rank",
+          "cand_pop_present",
+          "cand_recent_score",
+          "cand_recent_rank",
+          "cand_recent_present",
+          "cand_knn_score",
+          "cand_knn_rank",
+          "cand_knn_present",
+          "cand_genre_score",
+          "cand_genre_rank",
+          "cand_genre_present",
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "u_count_all",
+          "u_count_7",
+          "u_count_30",
+          "u_count_90",
+          "u_recency",
+          "u_observed_age",
+          "u_total_dur_mean",
+          "u_total_dur_missing",
+          "u_watched_pct_mean",
+          "u_watched_pct_missing",
+          "u_trend_7_30",
+          "u_active_days",
+          "u_genre_diversity",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id",
+          "i_release_year",
+          "i_release_year_missing",
+          "i_for_kids",
+          "i_for_kids_missing",
+          "i_age_rating",
+          "i_age_rating_missing",
+          "i_count_all",
+          "i_count_7",
+          "i_count_30",
+          "i_count_90",
+          "i_recency",
+          "i_observed_age",
+          "i_total_dur_mean",
+          "i_total_dur_missing",
+          "i_watched_pct_mean",
+          "i_watched_pct_missing",
+          "i_trend_7_30",
+          "pair_genre_count_all",
+          "pair_genre_share_all",
+          "pair_genre_count_7",
+          "pair_genre_share_7",
+          "pair_genre_count_30",
+          "pair_genre_share_30",
+          "pair_genre_count_90",
+          "pair_genre_share_90",
+          "pair_genre_recency",
+          "pair_genre_missing",
+          "pair_directors_count_all",
+          "pair_directors_share_all",
+          "pair_directors_count_7",
+          "pair_directors_share_7",
+          "pair_directors_count_30",
+          "pair_directors_share_30",
+          "pair_directors_count_90",
+          "pair_directors_share_90",
+          "pair_directors_recency",
+          "pair_directors_missing",
+          "pair_content_type_count_all",
+          "pair_content_type_share_all",
+          "pair_content_type_count_7",
+          "pair_content_type_share_7",
+          "pair_content_type_count_30",
+          "pair_content_type_share_30",
+          "pair_content_type_count_90",
+          "pair_content_type_share_90",
+          "pair_content_type_recency",
+          "pair_content_type_missing"
+        ],
+        "context": {
+          "inputs": "1778edf2ef52cc3b4f166a6076ebb0b185ab7b255f313ee4a6a571c1013060f0",
+          "research": {
+            "baseline_config": "config.toml",
+            "batch_rows": 20000,
+            "inner_users": 1000,
+            "max_features": 64,
+            "memory_limit_gib": 6.0,
+            "prediction_repeats": 3,
+            "prefix_sizes": [
+              16,
+              32,
+              64
+            ],
+            "run_name": "main",
+            "screen_depth": 6,
+            "screen_iterations": 120,
+            "threads": 2,
+            "tie_tolerance": 0.0001
+          },
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "model_sha256": "632ae25d419a001e60943d22b7a87aba084cd87322ba1e26c790b482cc937452",
+        "repeats": 3,
+        "snapshot": {
+          "cutoff": "2021-08-09",
+          "path": "artifacts/8dc3e45a731e1287d838/2021-08-09_validation.parquet",
+          "positive_candidates": 14334,
+          "queries": 10852,
+          "rows": 2170393,
+          "sha256": "2c156a184b565cf8ac9c6976aca54446aad86766fa30fff65383b5f480f5451a",
+          "training": false
+        },
+        "targets": "2fdfb1d4337f21cd4549bf35e08bc534d22f0b5b67eb7c2cb2d04fa2b52df232"
+      },
+      "metrics": {
+        "candidate_recall@200": 0.539750844210885,
+        "map@10": 0.10759310183200117,
+        "ndcg@10": 0.15379418025397162,
+        "recall@10": 0.22415111581559033,
+        "users": 10852
+      },
+      "model_bytes": 1343376,
+      "pool_seconds": 1.9089220419991761,
+      "predict_seconds": [
+        0.5638265410088934,
+        0.5983797500375658,
+        0.6125916659948416
+      ],
+      "predict_seconds_median": 0.5983797500375658,
+      "process_peak_rss_mb": 3291.578125,
+      "training_reused": true
+    },
+    "manual": {
+      "files": {
+        "per_user.parquet": "84a961daf1b6c8ddc25fe29d58c77317ded5d05befba49760675959fb82c8a06",
+        "predictions.parquet": "eb64c6f3a33c7a28945bf9ffb59d4b9b8393d4a3b8f6277d3cc8b888eb4cf1fd"
+      },
+      "fit_seconds": null,
+      "identity": {
+        "columns": [
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "u_count_all",
+          "u_count_7",
+          "u_count_30",
+          "u_count_90",
+          "u_recency",
+          "u_observed_age",
+          "u_total_dur_mean",
+          "u_total_dur_missing",
+          "u_watched_pct_mean",
+          "u_watched_pct_missing",
+          "u_trend_7_30",
+          "u_active_days",
+          "u_genre_diversity",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id",
+          "i_release_year",
+          "i_release_year_missing",
+          "i_for_kids",
+          "i_for_kids_missing",
+          "i_age_rating",
+          "i_age_rating_missing",
+          "i_count_all",
+          "i_count_7",
+          "i_count_30",
+          "i_count_90",
+          "i_recency",
+          "i_observed_age",
+          "i_total_dur_mean",
+          "i_total_dur_missing",
+          "i_watched_pct_mean",
+          "i_watched_pct_missing",
+          "i_trend_7_30",
+          "pair_genre_count_all",
+          "pair_genre_share_all",
+          "pair_genre_count_7",
+          "pair_genre_share_7",
+          "pair_genre_count_30",
+          "pair_genre_share_30",
+          "pair_genre_count_90",
+          "pair_genre_share_90",
+          "pair_genre_recency",
+          "pair_genre_missing",
+          "pair_directors_count_all",
+          "pair_directors_share_all",
+          "pair_directors_count_7",
+          "pair_directors_share_7",
+          "pair_directors_count_30",
+          "pair_directors_share_30",
+          "pair_directors_count_90",
+          "pair_directors_share_90",
+          "pair_directors_recency",
+          "pair_directors_missing",
+          "pair_content_type_count_all",
+          "pair_content_type_share_all",
+          "pair_content_type_count_7",
+          "pair_content_type_share_7",
+          "pair_content_type_count_30",
+          "pair_content_type_share_30",
+          "pair_content_type_count_90",
+          "pair_content_type_share_90",
+          "pair_content_type_recency",
+          "pair_content_type_missing"
+        ],
+        "context": {
+          "inputs": "1778edf2ef52cc3b4f166a6076ebb0b185ab7b255f313ee4a6a571c1013060f0",
+          "research": {
+            "baseline_config": "config.toml",
+            "batch_rows": 20000,
+            "inner_users": 1000,
+            "max_features": 64,
+            "memory_limit_gib": 6.0,
+            "prediction_repeats": 3,
+            "prefix_sizes": [
+              16,
+              32,
+              64
+            ],
+            "run_name": "main",
+            "screen_depth": 6,
+            "screen_iterations": 120,
+            "threads": 2,
+            "tie_tolerance": 0.0001
+          },
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "model_sha256": "2c2e5017c666b620d026e7e1edfef4e14f6331545e1ef0de37b9f957fb050243",
+        "repeats": 3,
+        "snapshot": {
+          "cutoff": "2021-08-09",
+          "path": "artifacts/8dc3e45a731e1287d838/2021-08-09_validation.parquet",
+          "positive_candidates": 14334,
+          "queries": 10852,
+          "rows": 2170393,
+          "sha256": "2c156a184b565cf8ac9c6976aca54446aad86766fa30fff65383b5f480f5451a",
+          "training": false
+        },
+        "targets": "2fdfb1d4337f21cd4549bf35e08bc534d22f0b5b67eb7c2cb2d04fa2b52df232"
+      },
+      "metrics": {
+        "candidate_recall@200": 0.539750844210885,
+        "map@10": 0.09832668543298194,
+        "ndcg@10": 0.1410818845771024,
+        "recall@10": 0.20764823406129942,
+        "users": 10852
+      },
+      "model_bytes": 1320072,
+      "pool_seconds": 1.9431022919598036,
+      "predict_seconds": [
+        0.7529365419759415,
+        0.8486057500122115,
+        0.7900300410110503
+      ],
+      "predict_seconds_median": 0.7900300410110503,
+      "process_peak_rss_mb": 3464.5625,
+      "training_reused": true
+    },
+    "random": {
+      "early_stopping": false,
+      "evaluation_rows": 2170393,
+      "files": {
+        "importance.csv": "ca83eafff3388f476ff309d5166ba558291e30fbb4290ad052dbb4bc283052b3",
+        "model.cbm": "ebeef4e788f7aea4a7892451a8bd83f4b55097fba6521837627561609a846b7a",
+        "per_user.parquet": "b83dea3df31c1dd9904c185af73afef61b2fa34c47a8f8addbe4a3920e9320ad",
+        "predictions.parquet": "13116e99db28f720a0be3a029b990cad7e67cc8ff21e7253381f8b3a0f496179"
+      },
+      "fit_seconds": 839.2083808750031,
+      "identity": {
+        "categorical": [
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id"
+        ],
+        "columns": [
+          "rrf_score",
+          "cand_pop_score",
+          "cand_pop_rank",
+          "cand_pop_present",
+          "cand_recent_score",
+          "cand_recent_rank",
+          "cand_recent_present",
+          "cand_knn_score",
+          "cand_knn_rank",
+          "cand_knn_present",
+          "cand_genre_score",
+          "cand_genre_rank",
+          "cand_genre_present",
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id",
+          "i_release_year",
+          "i_release_year_missing",
+          "i_for_kids",
+          "i_for_kids_missing",
+          "i_age_rating",
+          "i_age_rating_missing",
+          "auto__item_sex__mean_log_dur__14",
+          "auto__item_age__count__14",
+          "auto__item_age__count__60",
+          "auto__user_countries__mean_log_dur__7",
+          "auto__user_content_type__trend__3_14",
+          "auto__user_content_type__mean_pct__3",
+          "auto__user__max_pct__30",
+          "auto__user_countries__share__14",
+          "auto__user_countries__sum_log_dur__all",
+          "auto__user_countries__max_pct__7",
+          "auto__item_sex__max_pct__90",
+          "auto__item_age__count__10",
+          "auto__user_directors__mean_pct__10",
+          "auto__user_genres__share__3",
+          "auto__user_countries__mean_pct__all",
+          "auto__item_income__count__7"
+        ],
+        "context": {
+          "inputs": "1778edf2ef52cc3b4f166a6076ebb0b185ab7b255f313ee4a6a571c1013060f0",
+          "research": {
+            "baseline_config": "config.toml",
+            "batch_rows": 20000,
+            "inner_users": 1000,
+            "max_features": 64,
+            "memory_limit_gib": 6.0,
+            "prediction_repeats": 3,
+            "prefix_sizes": [
+              16,
+              32,
+              64
+            ],
+            "run_name": "main",
+            "screen_depth": 6,
+            "screen_iterations": 120,
+            "threads": 2,
+            "tie_tolerance": 0.0001
+          },
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "evaluation": "5955daa92c34a2db5872361d9b67344af938682935d58cb737a56cd56d4426c1",
+        "parameters": {
+          "depth": 8,
+          "iterations": 299,
+          "l2_leaf_reg": 3,
+          "learning_rate": 0.05,
+          "loss_function": "YetiRank",
+          "max_ctr_complexity": 1,
+          "random_seed": 42,
+          "thread_count": 2
+        },
+        "repeats": 3,
+        "targets": "2fdfb1d4337f21cd4549bf35e08bc534d22f0b5b67eb7c2cb2d04fa2b52df232",
+        "train": "d6e1982935c456d1a2cd6b70c62644ac44f487c65606aabf0311f1415ad5eeb7"
+      },
+      "metrics": {
+        "candidate_recall@200": 0.539750844210885,
+        "map@10": 0.10707365424395311,
+        "ndcg@10": 0.15352173795771798,
+        "recall@10": 0.2242071737365181,
+        "users": 10852
+      },
+      "model_bytes": 1318336,
+      "pool_seconds": 2.2164714579703286,
+      "predict_seconds": [
+        0.5110652910079807,
+        0.5605538329691626,
+        0.583563000021968
+      ],
+      "predict_seconds_median": 0.5605538329691626,
+      "process_peak_rss_mb": 2426.4375,
+      "reload_verified": true,
+      "train_queries": 11120,
+      "train_rows": 2223979,
+      "validation_pool_seconds": 2.0134793749894015
+    },
+    "source": {
+      "files": {
+        "per_user.parquet": "546df5c90c0e0754aa76ad9c1280c2797b54c44139c4ac656752277b159b9376",
+        "predictions.parquet": "f5233a6583b987c4032e4403799ae184441ddc3c38f3104f55d39aa6ac4f4cb0"
+      },
+      "fit_seconds": null,
+      "identity": {
+        "columns": [
+          "rrf_score",
+          "cand_pop_score",
+          "cand_pop_rank",
+          "cand_pop_present",
+          "cand_recent_score",
+          "cand_recent_rank",
+          "cand_recent_present",
+          "cand_knn_score",
+          "cand_knn_rank",
+          "cand_knn_present",
+          "cand_genre_score",
+          "cand_genre_rank",
+          "cand_genre_present"
+        ],
+        "context": {
+          "inputs": "1778edf2ef52cc3b4f166a6076ebb0b185ab7b255f313ee4a6a571c1013060f0",
+          "research": {
+            "baseline_config": "config.toml",
+            "batch_rows": 20000,
+            "inner_users": 1000,
+            "max_features": 64,
+            "memory_limit_gib": 6.0,
+            "prediction_repeats": 3,
+            "prefix_sizes": [
+              16,
+              32,
+              64
+            ],
+            "run_name": "main",
+            "screen_depth": 6,
+            "screen_iterations": 120,
+            "threads": 2,
+            "tie_tolerance": 0.0001
+          },
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "model_sha256": "291479cc102015016aff76d2891ed80d277165151f6d63cb56a034f625cb72ce",
+        "repeats": 3,
+        "snapshot": {
+          "cutoff": "2021-08-09",
+          "path": "artifacts/8dc3e45a731e1287d838/2021-08-09_validation.parquet",
+          "positive_candidates": 14334,
+          "queries": 10852,
+          "rows": 2170393,
+          "sha256": "2c156a184b565cf8ac9c6976aca54446aad86766fa30fff65383b5f480f5451a",
+          "training": false
+        },
+        "targets": "2fdfb1d4337f21cd4549bf35e08bc534d22f0b5b67eb7c2cb2d04fa2b52df232"
+      },
+      "metrics": {
+        "candidate_recall@200": 0.539750844210885,
+        "map@10": 0.10404583900238366,
+        "ndcg@10": 0.14999997863167833,
+        "recall@10": 0.22070154142058526,
+        "users": 10852
+      },
+      "model_bytes": 1256896,
+      "pool_seconds": 0.0004461250500753522,
+      "predict_seconds": [
+        0.4176271670148708,
+        0.46066137496382,
+        0.49329770798794925
+      ],
+      "predict_seconds_median": 0.46066137496382,
+      "process_peak_rss_mb": 3160.203125,
+      "training_reused": true
+    },
+    "source_raw": {
+      "early_stopping": false,
+      "evaluation_rows": 2170393,
+      "files": {
+        "importance.csv": "0a964960ffe8490de5c7acfadd267883b2a9781d8d7d619615f99b2650dfc41f",
+        "model.cbm": "17757c7f9b25da6cc92918c77f0e006527a2b5c2896a3e220f89f3e404e8f4b1",
+        "per_user.parquet": "3ed64ab2e7f383efd69c5333ba36e641cfec188b74866b2a1c96dbbc827e7921",
+        "predictions.parquet": "1e09a6605052ecc8287311b2ec22f64693bc69586ae1ea405e6d38f782b14d80"
+      },
+      "fit_seconds": 717.9204432080151,
+      "identity": {
+        "categorical": [
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id"
+        ],
+        "columns": [
+          "rrf_score",
+          "cand_pop_score",
+          "cand_pop_rank",
+          "cand_pop_present",
+          "cand_recent_score",
+          "cand_recent_rank",
+          "cand_recent_present",
+          "cand_knn_score",
+          "cand_knn_rank",
+          "cand_knn_present",
+          "cand_genre_score",
+          "cand_genre_rank",
+          "cand_genre_present",
+          "u_age",
+          "u_income",
+          "u_sex",
+          "u_kids_flg",
+          "i_content_type",
+          "i_countries",
+          "i_directors",
+          "i_genres",
+          "i_id",
+          "i_release_year",
+          "i_release_year_missing",
+          "i_for_kids",
+          "i_for_kids_missing",
+          "i_age_rating",
+          "i_age_rating_missing"
+        ],
+        "context": {
+          "inputs": "1778edf2ef52cc3b4f166a6076ebb0b185ab7b255f313ee4a6a571c1013060f0",
+          "research": {
+            "baseline_config": "config.toml",
+            "batch_rows": 20000,
+            "inner_users": 1000,
+            "max_features": 64,
+            "memory_limit_gib": 6.0,
+            "prediction_repeats": 3,
+            "prefix_sizes": [
+              16,
+              32,
+              64
+            ],
+            "run_name": "main",
+            "screen_depth": 6,
+            "screen_iterations": 120,
+            "threads": 2,
+            "tie_tolerance": 0.0001
+          },
+          "sources": {
+            "__init__.py": "8505b1cdfa01f42157b13e9d30dc80312e6b552b0f1f60ba77a00f2011d28942",
+            "__main__.py": "a8fcead4b85c1845cedcd64053ccc4c4c11360e9694ca3e00e41d18324e5acd8",
+            "baseline.py": "cc030a893abc6695c81e5a8c81b74493e82b223da4c028a7a5352ea4c54e0d57",
+            "config.py": "1f314238174c737c781ec221b5371709f63106b30e14bf3fbda5726034fc210e",
+            "engine.py": "546c15d5d7667e3f17344f1bcfa8ab2331f9476c1698d2d2254955bb2c9a2c5e",
+            "experiment.py": "f5b2ba6d5de53c98e975fcea4d5e3413828dbdbec5cc9ee012a57e56a8e16e69",
+            "final.py": "a002b282d4bfdedd94e8746b7eb2981ea737201a68a20fd309de90eb57754e55",
+            "grammar.py": "5b9661d7b067c87c83ddd58949ab6f74e45b73c6923ed6bbeb9106109f201a59",
+            "io.py": "6d6986825e618edddcd1280d3bb7528a88666ca0b4b76db5ac191775d012a8d0",
+            "model.py": "4c0a081a771f27b8765728a2bdd8758067c66c1bd7bfe8c0abde554b5830f031",
+            "runtime.py": "56116a28b2f2cc2a784760304f5a336ee7b508e4194cf538939b8700c668b3b9",
+            "search.py": "6653bd9546afb8d8b6954f429b39e488bd63e801d8da0b1e5135a6b1f4134354"
+          }
+        },
+        "evaluation": "efe191845f3fce27a6173d999173faf491f856b0c2fd5fa862226b3927bdd9de",
+        "parameters": {
+          "depth": 8,
+          "iterations": 299,
+          "l2_leaf_reg": 3,
+          "learning_rate": 0.05,
+          "loss_function": "YetiRank",
+          "max_ctr_complexity": 1,
+          "random_seed": 42,
+          "thread_count": 2
+        },
+        "repeats": 3,
+        "targets": "2fdfb1d4337f21cd4549bf35e08bc534d22f0b5b67eb7c2cb2d04fa2b52df232",
+        "train": "a666d2d9a1b2b73d738a85e104872e3b9022f60edba70b942a4263e79ce4444a"
+      },
+      "metrics": {
+        "candidate_recall@200": 0.539750844210885,
+        "map@10": 0.10585712776018381,
+        "ndcg@10": 0.1522365765806476,
+        "recall@10": 0.22314472919057732,
+        "users": 10852
+      },
+      "model_bytes": 1316256,
+      "pool_seconds": 2.0450308340368792,
+      "predict_seconds": [
+        0.44129929202608764,
+        0.44278658303664997,
+        0.447443499986548
+      ],
+      "predict_seconds_median": 0.44278658303664997,
+      "process_peak_rss_mb": 3315.15625,
+      "reload_verified": true,
+      "train_queries": 11120,
+      "train_rows": 2223979,
+      "validation_pool_seconds": 1.9320077499723993
+    }
+  },
+  "test_evaluated": false
+}
